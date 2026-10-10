@@ -1,0 +1,103 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+
+/// Regular font family
+/// @type List
+$primary-font: "ProximaNova";
+$secondary-font: "Teko";
+
+/// font sizes for different width screen
+$fs-heading--extra-large: 48px;
+$fs-heading--large: 36px;
+$fs-heading--medium: 32px;
+$fs-heading--small: 28px;
+$fs-primary-text--large: 24px;
+$fs-primary-text--medium: 20px;
+$fs-tertiary-text--small: 18px;
+$fs-secondary-text--large: 16px;
+$fs-secondary-text--small: 14px;
+$fs-primary-button: 15px;
+$fs-seconday-primary-button: 12px;
+
+
+/// font weight for the website
+$fw-normal: normal;
+$fw-extra-bold: 800;
+$fw-bold: bold;
+$fw-semi-bold: 600;
+$fw-semi-medium: 500;
+$fw-light: 300;
+
+/// Brand colors extracted from logo-Companigonjturf.png (Companigonj Turf Zone)
+$color-primary: #0b3b24; // Deep Emerald / Forest Green
+$color-primary-dark: #062a19; // Dark Forest Green
+$color-primary-light: #15803d; // Pitch Turf Green
+$color-primary-accent: #22c55e; // Bright Green Accent
+$color-gold: #d4af37; // Metallic Gold
+$color-gold-light: #e5c158; // Bright Gold Accent
+$color-gold-dark: #b8860b; // Dark Gold Accent
+
+/// color scheme for the website
+/// @type Color
+$fc-primary--dark: rgb(32, 32, 32);
+$fc-primary--gray: #757575;
+$fc-primary--white: rgb(255, 255, 255);
+$fc-secondary--dark: rgb(0, 0, 0);
+$fc-card--red: #0b3b24;
+$fc-brand-primary: $color-primary;
+$fc-brand-green: $color-primary-light;
+$fc-brand-gold: $color-gold;
+
+
+//background-colors
+$bgc-primary--dark: #051910;
+$bgc-primary--white: rgb(255, 255, 255);
+$bgc-secondary--dark: #08261a;
+$bgc-secondary--white: #F4F7F5;
+$bgc-tertiary--white: #E6F4EA;
+$bgc-nav-open: #062a19;
+$bgc-code: rgb(245, 245, 245);
+$bgc-gray: rgb(242, 242, 242);
+$bgc-blog: rgb(249, 249, 249);
+$bgc-primary-button: linear-gradient(135deg, #15803d, #0b3b24);
+$bgc-primary-button--hover: linear-gradient(135deg, #d4af37, #b8860b);
+$bgc-secondary-button--dark: #0b3b24;
+$bgc-secondary-button--light: #15803d;
+$bgc-red-card: #0b3b24;
+$bgc-header: linear-gradient(to right, #062a19, #0b3b24 70%);
+$bgc-footer: linear-gradient(180deg, #051a12 0%, #0b3b24 100%);
+
+//border-colors
+$brc-primary--black: #000000;
+$brc-primary--white: #ffffff;
+$brc-primary--gold: #d4af37;
+$brc-primary--green: #15803d;
+
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1660px !default;
+
+
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  'extra-small': 320px,
+  'small': 640px,
+  'medium': 768px,
+  'medium-small': 980px,
+  'large': 1024px,
+  'extra-large': 1280px,
+  'double-extra-large': 1536px) !default;
+
+
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/assets/' !default;
