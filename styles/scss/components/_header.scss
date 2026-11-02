@@ -141,9 +141,43 @@
         }
     }
 
+    /* Primary Book Slot Button in Desktop Header */
     .header-book-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: rem(7px) !important;
         padding: rem(9px) rem(20px) !important;
-        font-size: rem(12px) !important;
+        background: linear-gradient(135deg, #0b3b24 0%, #15803d 100%) !important;
+        border: 1px solid #0b3b24 !important;
+        color: #ffffff !important;
+        border-radius: rem(999px) !important;
+        font-size: rem(12.5px) !important;
+        font-weight: 800 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+        box-shadow: 0 4px 14px rgba(11, 59, 36, 0.25);
+        transition: all 0.25s ease;
+
+        svg {
+            color: #ffffff !important;
+            stroke: #ffffff !important;
+        }
+
+        &:hover {
+            background: linear-gradient(135deg, #15803d 0%, #16a34a 100%) !important;
+            border-color: #15803d !important;
+            color: #ffffff !important;
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+            transform: translateY(-1px);
+            cursor: pointer;
+
+            svg {
+                color: #ffffff !important;
+                stroke: #ffffff !important;
+            }
+        }
     }
 
     /* Mobile Button */
@@ -276,8 +310,34 @@
         }
 
         .drawer-book-btn {
-            width: 100%;
-            justify-content: center;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: rem(8px) !important;
+            width: 100% !important;
+            padding: rem(12px) rem(20px) !important;
+            background: linear-gradient(135deg, #0b3b24 0%, #15803d 100%) !important;
+            border: 1px solid #0b3b24 !important;
+            color: #ffffff !important;
+            border-radius: rem(12px) !important;
+            font-size: rem(13px) !important;
+            font-weight: 800 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(11, 59, 36, 0.25);
+            transition: all 0.25s ease;
+
+            svg {
+                color: #ffffff !important;
+                stroke: #ffffff !important;
+            }
+
+            &:hover {
+                background: linear-gradient(135deg, #15803d 0%, #16a34a 100%) !important;
+                color: #ffffff !important;
+                transform: translateY(-1px);
+            }
         }
     }
 }

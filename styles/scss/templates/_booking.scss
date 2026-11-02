@@ -1,5 +1,6 @@
 /* ==========================================================================
-   THE TURF NOAKHALI - DEDICATED BOOKING PAGE (WHITE & DARK GREEN)
+   THE TURF NOAKHALI - DEDICATED BOOKING PAGE (HERO BANNER & HELP BAR)
+   Matching the dark, atmospheric stadium hero from Amishapara Sports Hub
    ========================================================================== */
 
 .booking-page-root {
@@ -10,12 +11,13 @@
 
 .booking-hero-banner {
   position: relative;
-  padding: rem(60px) 0 rem(50px);
+  padding: rem(70px) 0 rem(55px);
   overflow: hidden;
-  background-color: #0b3b24;
+  background-color: #061a11;
+  text-align: center;
 
   @include mq(large) {
-    padding: rem(75px) 0 rem(60px);
+    padding: rem(90px) 0 rem(70px);
   }
 
   &__bg {
@@ -25,14 +27,30 @@
 
     .banner-bg-img {
       object-fit: cover;
-      opacity: 0.88;
-      filter: saturate(1.15) brightness(0.9);
+      opacity: 0.35;
+      filter: saturate(1.1) brightness(0.8);
     }
 
     .banner-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(11, 59, 36, 0.65) 0%, rgba(6, 42, 25, 0.8) 100%);
+      background: linear-gradient(
+        180deg,
+        rgba(6, 26, 17, 0.72) 0%,
+        rgba(6, 26, 17, 0.94) 100%
+      );
+    }
+
+    .banner-radial-glow {
+      position: absolute;
+      top: 20%;
+      left: 15%;
+      width: rem(420px);
+      height: rem(420px);
+      background: rgba(16, 185, 129, 0.16);
+      border-radius: 50%;
+      filter: blur(130px);
+      pointer-events: none;
     }
   }
 
@@ -40,19 +58,21 @@
     position: relative;
     z-index: 2;
     text-align: center;
-    max-width: 800px;
+    max-width: rem(860px);
     margin: 0 auto;
+    padding: 0 rem(16px);
   }
 
   .banner-breadcrumbs {
     display: inline-flex;
     align-items: center;
-    gap: rem(6px);
-    font-size: rem(13px);
-    color: #e2e8f0;
+    gap: rem(8px);
+    font-size: rem(12.5px);
+    font-weight: 700;
+    color: #94a3b8;
     margin-bottom: rem(16px);
 
-    a {
+    .crumb-link {
       color: #cbd5e1;
       text-decoration: none;
       transition: color 0.2s ease;
@@ -62,30 +82,50 @@
       }
     }
 
-    span {
-      color: #86efac;
-      font-weight: 700;
+    .crumb-separator {
+      color: #64748b;
+    }
+
+    .crumb-active {
+      color: #ffffff;
+      font-weight: 800;
     }
   }
 
   .banner-title {
-    font-size: rem(32px);
+    font-size: rem(34px);
     font-weight: 900;
     color: #ffffff;
     letter-spacing: -0.5px;
     text-transform: uppercase;
-    margin-bottom: rem(12px);
+    margin-bottom: rem(14px);
+    line-height: 1.15;
+
+    @include mq(medium) {
+      font-size: rem(48px);
+    }
 
     @include mq(large) {
-      font-size: rem(44px);
+      font-size: rem(54px);
+    }
+
+    .accent-glow {
+      color: #10b981;
+      text-shadow: 0 4px 25px rgba(16, 185, 129, 0.55);
     }
   }
 
   .banner-desc {
-    font-size: rem(15px);
-    color: #e2e8f0;
+    font-size: rem(14px);
+    color: #cbd5e1;
     line-height: 1.6;
-    margin-bottom: rem(26px);
+    max-width: rem(680px);
+    margin: 0 auto rem(26px);
+    font-weight: 500;
+
+    @include mq(medium) {
+      font-size: rem(15.5px);
+    }
   }
 
   .banner-pills {
@@ -93,23 +133,33 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: rem(12px);
+    gap: rem(10px);
 
     .pill-item {
       display: inline-flex;
       align-items: center;
-      gap: rem(6px);
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #ffffff;
+      gap: rem(8px);
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #e2e8f0;
       padding: rem(6px) rem(16px);
       border-radius: rem(999px);
       font-size: rem(12px);
-      font-weight: 600;
+      font-weight: 700;
       backdrop-filter: blur(8px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 
-      .pill-icon {
-        color: #86efac;
+      .pill-icon-circle {
+        width: rem(22px);
+        height: rem(22px);
+        border-radius: 50%;
+        background: rgba(16, 185, 129, 0.2);
+        border: 1px solid rgba(16, 185, 129, 0.4);
+        color: #34d399;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
       }
     }
   }
@@ -118,22 +168,34 @@
 .booking-view-section {
   position: relative;
   z-index: 2;
-  padding-top: rem(20px);
+  padding: rem(20px) 0 rem(40px);
+
+  .container {
+    max-width: rem(1240px);
+    margin: 0 auto;
+    padding: 0 rem(16px);
+  }
 }
 
 .booking-help-bar {
-  padding: rem(30px) 0 rem(80px);
+  padding: 0 0 rem(80px);
+
+  .container {
+    max-width: rem(1240px);
+    margin: 0 auto;
+    padding: 0 rem(16px);
+  }
 
   .help-bar-card {
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: rem(20px);
+    border-radius: rem(24px);
     padding: rem(24px) rem(28px);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: rem(18px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
 
     @include mq(medium) {
       flex-direction: row;
@@ -145,15 +207,18 @@
       flex: 1;
 
       h4 {
-        font-size: rem(18px);
-        font-weight: 800;
+        font-size: rem(17px);
+        font-weight: 900;
         color: #0b3b24;
         margin-bottom: rem(4px);
+        letter-spacing: -0.3px;
       }
 
       p {
-        font-size: rem(14px);
+        font-size: rem(13.5px);
         color: #4b5563;
+        line-height: 1.5;
+        margin: 0;
       }
     }
 
@@ -166,38 +231,42 @@
       .secondary-button {
         display: inline-flex;
         align-items: center;
-        gap: rem(6px);
+        gap: rem(8px);
         border: 1.5px solid #0b3b24;
         color: #0b3b24;
-        padding: rem(8px) rem(20px);
-        border-radius: rem(8px);
-        font-weight: 700;
+        padding: rem(10px) rem(20px);
+        border-radius: rem(12px);
+        font-weight: 800;
         font-size: rem(13px);
         background: transparent;
+        text-decoration: none;
         transition: all 0.2s ease;
 
         &:hover {
           background: #0b3b24;
           color: #ffffff;
+          transform: translateY(-1px);
         }
       }
 
       .btn-whatsapp-pill {
         display: inline-flex;
         align-items: center;
-        gap: rem(6px);
+        gap: rem(8px);
         background: #25d366;
         color: #ffffff;
-        padding: rem(8px) rem(20px);
-        border-radius: rem(8px);
-        font-weight: 700;
+        padding: rem(10px) rem(20px);
+        border-radius: rem(12px);
+        font-weight: 800;
         font-size: rem(13px);
         text-decoration: none;
         transition: all 0.2s ease;
+        box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
 
         &:hover {
           background: #1ebd56;
-          box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+          box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+          transform: translateY(-1px);
         }
       }
     }
