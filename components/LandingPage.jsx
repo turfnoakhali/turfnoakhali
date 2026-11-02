@@ -12,6 +12,7 @@ import {
   CheckCircle2,
   Phone,
   MessageCircle,
+  Mail,
   ChevronRight,
   ChevronDown,
   Layers,
@@ -204,6 +205,18 @@ const LandingPage = () => {
       tag: "Action",
       desc: "High rebound tension netting keeping the game moving.",
     },
+    {
+      src: "/images/7.JPG",
+      title: "Fast-Paced Footwork",
+      tag: "Dribble",
+      desc: "Non-slip FIFA certified synthetic turf providing peak agility.",
+    },
+    {
+      src: "/images/8.jpg",
+      title: "Under The Floodlights",
+      tag: "Night Game",
+      desc: "Clean, safe, and exciting football action with your friends.",
+    },
   ];
 
   const testimonials = [
@@ -285,15 +298,22 @@ const LandingPage = () => {
               </div>
 
               <h1 className="hero-headline">
-                <span className="headline-block">PLAY</span>
-                <span className="headline-block headline-highlight">FOOTBALL</span>
+                <span className="headline-block">
+                  PLAY <span className="headline-highlight">FOOTBALL</span>
+                </span>
                 <span className="headline-block">LIVE PASSION</span>
                 <span className="headline-block headline-sub">AT THE TURF NOAKHALI</span>
               </h1>
 
               <div className="hero-subtitles">
-                <p className="hero-sub-p">Premium Turf • Modern Facilities</p>
-                <p className="hero-sub-p">Safe &amp; Enjoyable Environment</p>
+                <p className="hero-sub-p">
+                  <span className="sub-bullet"></span>
+                  <span>Premium Turf • Modern Facilities</span>
+                </p>
+                <p className="hero-sub-p">
+                  <span className="sub-bullet"></span>
+                  <span>Safe &amp; Enjoyable Environment</span>
+                </p>
               </div>
 
               <div className="hero-actions">
@@ -302,32 +322,14 @@ const LandingPage = () => {
                   <ChevronRight size={16} />
                 </Link>
 
-                <a href="#facilities" className="outline-white-button hero-btn-sec">
+                <a href="#facilities" className="primary-button hero-btn-main">
                   <span>Explore Facilities</span>
+                  <ChevronRight size={16} />
                 </a>
               </div>
             </div>
 
-            {/* Right Emblem Logo */}
-            <div className="hero-amishapara__right">
-              <div className="emblem-card">
-                <div className="emblem-glow"></div>
-                <div className="emblem-logo-box">
-                  <Image
-                    src="/images/the-turf-noakhali-logo.png"
-                    alt="The Turf Noakhali Logo"
-                    width={280}
-                    height={280}
-                    priority
-                    className="emblem-logo"
-                  />
-                </div>
-                <div className="emblem-caption">
-                  <span className="emblem-tag">WHERE CHAMPIONS PLAY</span>
-                  <span className="emblem-loc">NOAKHALI, BANGLADESH</span>
-                </div>
-              </div>
-            </div>
+
           </div>
 
           {/* Bottom Floating Info Strip */}
@@ -597,9 +599,9 @@ const LandingPage = () => {
       </section>
 
       {/* =================================================================
-          6. ARENA GALLERY SECTION
+          6. ARENA GALLERY SECTION (#gallery)
          ================================================================= */}
-      <section className="section-gallery-showcase">
+      <section id="gallery" className="section-gallery-showcase">
         <div className="container">
           <div className="section-header-center">
             <div className="section-badge-green">ARENA GALLERY &amp; CLIPS</div>
@@ -628,13 +630,6 @@ const LandingPage = () => {
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="gallery-more-btn-wrap">
-            <Link href="/gallery" className="secondary-button">
-              <span>View Full Gallery</span>
-              <ChevronRight size={16} />
-            </Link>
           </div>
         </div>
       </section>
@@ -672,7 +667,7 @@ const LandingPage = () => {
       </section>
 
       {/* =================================================================
-          8. FREQUENTLY ASKED QUESTIONS SECTION
+          8. FREQUENTLY ASKED QUESTIONS SECTION (#faq)
          ================================================================= */}
       <section id="faq" className="section-faqs">
         <div className="container">
@@ -717,7 +712,101 @@ const LandingPage = () => {
       </section>
 
       {/* =================================================================
-          9. CALL TO ACTION (CTA) SECTION (Dark Green Background)
+          9. LOCATION & CONTACT SECTION (#contact)
+         ================================================================= */}
+      <section id="contact" className="section-contact-location">
+        <div className="container">
+          <div className="section-header-center">
+            <div className="section-badge-green">LOCATION &amp; CONTACT</div>
+            <h2 className="section-title-dark">Find Our Arena &amp; Get In Touch</h2>
+            <p className="section-desc-gray">
+              Visit The Turf Noakhali for high-voltage football action or reach out directly to book slots and organize tournaments.
+            </p>
+          </div>
+
+          <div className="contact-layout-grid">
+            {/* Left Column: Direct Contact Info Cards */}
+            <div className="contact-cards-col">
+              <a href="tel:01355289797" className="contact-info-card">
+                <div className="contact-card-icon">
+                  <Phone size={22} />
+                </div>
+                <div className="contact-card-content">
+                  <span className="contact-card-label">Direct Hotline</span>
+                  <span className="contact-card-val">01355289797</span>
+                  <span className="contact-card-sub">Tap to call instantly for slot availability</span>
+                </div>
+              </a>
+
+              <a
+                href="https://wa.me/8801355289797"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-info-card"
+              >
+                <div className="contact-card-icon">
+                  <MessageCircle size={22} />
+                </div>
+                <div className="contact-card-content">
+                  <span className="contact-card-label">WhatsApp Support</span>
+                  <span className="contact-card-val">+880 1355 289 797</span>
+                  <span className="contact-card-sub">Instant chat, booking confirmation &amp; queries</span>
+                </div>
+              </a>
+
+              <div className="contact-info-card">
+                <div className="contact-card-icon">
+                  <MapPin size={22} />
+                </div>
+                <div className="contact-card-content">
+                  <span className="contact-card-label">Arena Location</span>
+                  <span className="contact-card-val">The Turf Noakhali</span>
+                  <span className="contact-card-sub">Companigonj, Noakhali, Bangladesh</span>
+                </div>
+              </div>
+
+              <div className="contact-info-card">
+                <div className="contact-card-icon">
+                  <Clock size={22} />
+                </div>
+                <div className="contact-card-content">
+                  <span className="contact-card-label">Opening Hours</span>
+                  <span className="contact-card-val">Open 24/7 • Every Day</span>
+                  <span className="contact-card-sub">Floodlit daylight LED ready around the clock</span>
+                </div>
+              </div>
+
+              <a href="mailto:turfnoakhali@gmail.com" className="contact-info-card">
+                <div className="contact-card-icon">
+                  <Mail size={22} />
+                </div>
+                <div className="contact-card-content">
+                  <span className="contact-card-label">Official Email</span>
+                  <span className="contact-card-val">turfnoakhali@gmail.com</span>
+                  <span className="contact-card-sub">For sponsorship, tournaments &amp; corporate events</span>
+                </div>
+              </a>
+            </div>
+
+            {/* Right Column: Interactive Map */}
+            <div className="contact-map-col">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.023344707103!2d90.96260507438787!3d23.639334993033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37546900120d1447%3A0x129756cfae422568!2sCompanigonj%20Turf%20Zone!5e0!3m2!1sen!2sbd!4v1789580638671!5m2!1sen!2sbd"
+                width="100%"
+                height="100%"
+                className="contact-map-iframe"
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="The Turf Noakhali Arena Location Map"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =================================================================
+          10. CALL TO ACTION (CTA) SECTION (Dark Green Background)
          ================================================================= */}
       <section className="section-cta-amishapara">
         <div className="container">

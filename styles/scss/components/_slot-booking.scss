@@ -288,6 +288,9 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: rem(4px);
+  padding: rem(6px) rem(2px);
+  margin-top: rem(-4px);
+  margin-bottom: rem(-4px);
   overflow-x: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
@@ -302,6 +305,8 @@
 
   @include mq(medium) {
     gap: rem(10px);
+    overflow: visible;
+    padding: rem(6px) 0;
   }
 }
 
@@ -332,6 +337,9 @@
     background: #f8fafc;
     border-color: #10b981;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.12);
+    position: relative;
+    z-index: 2;
   }
 
   &.selected {
@@ -340,6 +348,8 @@
     color: #ffffff;
     box-shadow: 0 8px 22px rgba(11, 59, 36, 0.28);
     transform: scale(1.02);
+    position: relative;
+    z-index: 1;
 
     .day-card-name,
     .day-card-month {
@@ -450,19 +460,20 @@
   margin-bottom: rem(18px);
 
   @include mq(medium) {
-    border-radius: rem(16px);
-    padding: rem(6px);
-    margin-bottom: rem(20px);
+    border-radius: rem(18px);
+    padding: rem(7px);
+    gap: rem(8px);
+    margin-bottom: rem(22px);
   }
 }
 
 .shift-pill-btn {
   display: inline-flex;
   align-items: center;
-  gap: rem(5px);
-  padding: rem(6px) rem(11px);
-  border-radius: rem(10px);
-  font-size: rem(11px);
+  gap: rem(6px);
+  padding: rem(8px) rem(14px);
+  border-radius: rem(12px);
+  font-size: rem(13.5px);
   font-weight: 700;
   border: none;
   background: transparent;
@@ -472,10 +483,10 @@
   white-space: nowrap;
 
   @include mq(medium) {
-    font-size: rem(12px);
-    padding: rem(7px) rem(14px);
-    border-radius: rem(12px);
-    gap: rem(6px);
+    font-size: rem(15px);
+    padding: rem(9px) rem(18px);
+    border-radius: rem(14px);
+    gap: rem(8px);
   }
 
   &:hover:not(.active) {
@@ -487,11 +498,11 @@
     background: #0b3b24;
     color: #ffffff;
     font-weight: 800;
-    box-shadow: 0 4px 12px rgba(11, 59, 36, 0.22);
+    box-shadow: 0 4px 14px rgba(11, 59, 36, 0.25);
   }
 
   .filter-emoji {
-    font-size: rem(12.5px);
+    font-size: rem(16px);
   }
 }
 

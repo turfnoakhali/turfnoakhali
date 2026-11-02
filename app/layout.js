@@ -1,6 +1,7 @@
 import '../styles/scss/main.scss';
 import Header from '@/components/Header'
 import Footer from '@/components/Footer';
+import WhatsAppFloatingButton from '@/components/WhatsAppFloatingButton';
 
 import { Providers } from './Providers/providers';
 import ToastProvider from './Providers/ToastProvider';
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
           </Suspense>
           {children}
           <ToastProvider />
+          <WhatsAppFloatingButton />
           <Footer />
         </Providers>
       </body>

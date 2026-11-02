@@ -33,9 +33,9 @@ const Header = () => {
     <header className={`header-amishapara ${isScrolled ? "scrolled" : ""}`}>
       <div className="container">
         <div className="header-amishapara__content">
-          {/* Logo & Brand Name */}
+          {/* Logo */}
           <div className="header-amishapara__brand">
-            <Link href="/" className="brand-link">
+            <Link href="/" className="brand-link" aria-label="The Turf Noakhali">
               <div className="brand-logo-wrap">
                 <Image
                   src="/images/the-turf-noakhali-logo.png"
@@ -45,10 +45,6 @@ const Header = () => {
                   priority
                   className="brand-logo-img"
                 />
-              </div>
-              <div className="brand-text">
-                <span className="brand-title">THE TURF</span>
-                <span className="brand-subtitle">NOAKHALI</span>
               </div>
             </Link>
           </div>
@@ -98,7 +94,7 @@ const Header = () => {
             <div className="mobile-drawer-overlay" onClick={toggleMenu}>
               <div className="mobile-drawer-card" onClick={(e) => e.stopPropagation()}>
                 <div className="drawer-top">
-                  <Link href="/" onClick={toggleMenu} className="drawer-brand">
+                  <Link href="/" onClick={toggleMenu} className="drawer-brand" aria-label="The Turf Noakhali">
                     <Image
                       src="/images/the-turf-noakhali-logo.png"
                       alt="The Turf Noakhali"
@@ -106,10 +102,6 @@ const Header = () => {
                       height={44}
                       className="brand-logo-img"
                     />
-                    <div className="brand-text">
-                      <span className="brand-title">THE TURF</span>
-                      <span className="brand-subtitle">NOAKHALI</span>
-                    </div>
                   </Link>
 
                   <button

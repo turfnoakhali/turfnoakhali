@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Phone, Mail, MapPin, ShieldCheck, Clock, Award, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, ShieldCheck, Clock, Award } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -10,7 +10,7 @@ const Footer = () => {
                 <div className="footer__top">
                     {/* Brand Column */}
                     <div className="footer__column footer__brand-col">
-                        <Link href="/" className="footer__brand-link">
+                        <Link href="/" className="footer__brand-link" aria-label="The Turf Noakhali">
                             <Image
                                 src="/images/the-turf-noakhali-logo.png"
                                 alt="The Turf Noakhali Logo"
@@ -18,10 +18,6 @@ const Footer = () => {
                                 height={75}
                                 className="footer__logo"
                             />
-                            <div className="footer__brand-text">
-                                <span className="brand-title">THE TURF</span>
-                                <span className="brand-sub">NOAKHALI</span>
-                            </div>
                         </Link>
                         <p className="footer__description">
                             Where Champions Play. Premier FIFA-grade artificial football turf arena in Noakhali. Equipped with professional daylight LED floodlights, 6v6 & 7v7 formats, and instant online reservations.
@@ -36,7 +32,7 @@ const Footer = () => {
                                     height={24}
                                     className="bkash-img"
                                 />
-                                <span>bKash & Nagad Accepted</span>
+                                <span>bKash Accepted</span>
                             </div>
                         </div>
                     </div>
@@ -49,9 +45,9 @@ const Footer = () => {
                             <Link href="/booking">Live Booking</Link>
                             <Link href="/#facilities">Facilities & Amenities</Link>
                             <Link href="/#pricing">Rates & Shifts</Link>
-                            <Link href="/gallery">Photo Gallery</Link>
+                            <Link href="/#gallery">Photo Gallery</Link>
                             <Link href="/#faq">Rules & FAQ</Link>
-                            <Link href="/contactus">Contact Us</Link>
+                            <Link href="/#contact">Contact Us</Link>
                         </nav>
                     </div>
 
@@ -73,17 +69,12 @@ const Footer = () => {
                         <div className="footer__contact-list">
                             <div className="contact-item">
                                 <MapPin size={18} className="contact-icon" />
-                                <span>The Turf Noakhali, Noakhali, Bangladesh</span>
+                                <a href="https://maps.google.com/?q=Companigonj+Turf+Zone+Noakhali" target="_blank" rel="noopener noreferrer">The Turf Noakhali, Noakhali, Bangladesh</a>
                             </div>
 
                             <div className="contact-item">
                                 <Phone size={18} className="contact-icon" />
                                 <a href="tel:01355289797">Hotline: 01355289797</a>
-                            </div>
-
-                            <div className="contact-item">
-                                <MessageCircle size={18} className="contact-icon" />
-                                <a href="https://wa.me/8801355289797" target="_blank" rel="noopener noreferrer">WhatsApp: 01355289797</a>
                             </div>
 
                             <div className="contact-item">
