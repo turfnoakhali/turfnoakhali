@@ -1,6 +1,27 @@
 .contact {
-    padding-top: rem(50px);
-    @include mq(large) {
-        padding-top: rem(100px);
+    padding: rem(60px) 0 rem(80px);
+    background-color: #040d08;
+    min-height: 80vh;
+
+    .button-wrap {
+        display: flex;
+        justify-content: center;
+        margin-top: rem(30px);
+    }
+}
+
+.map {
+    &__heading {
+        color: #ffffff;
+        font-size: rem(34px);
+        margin-bottom: rem(24px);
+    }
+
+    &__skyturf {
+        background: #082216;
+        border: 1px solid rgba(16, 185, 129, 0.22);
+        border-radius: rem(20px);
+        padding: rem(24px);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     }
 }

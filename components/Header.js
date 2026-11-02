@@ -3,162 +3,174 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useSession } from "next-auth/react";
-
-import MobileMenuBarIcon from "@/public/images/menu-bar-mobile.png";
-import MobileMenuBarCross from "@/public/images/close-menu.png";
+import { Menu as MenuIcon, X as CloseIcon, Phone, User, CalendarCheck } from "lucide-react";
 
 import Menu from "./api/menuApi";
 import HeaderNav from "./HeaderNav";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Header = () => {
   const { data: session } = useSession();
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const headerRef = useRef(null);
   const [menuData] = useState(Menu);
 
   useEffect(() => {
-    const header = headerRef.current;
-
-    if (window.innerWidth >= 1024) {
-      ScrollTrigger.create({
-        trigger: document.documentElement,
-        start: "150px top",
-        toggleClass: { targets: header, className: "scrolled" },
-        onEnter: () => {
-          gsap.to(header, {
-            y: 0,
-            duration: 0.8,
-            ease: "power3.in",
-            onStart: () => {
-              header.style.position = "sticky";
-              header.style.top = "0";
-              header.style.left = "0";
-              header.style.width = "100%";
-              header.style.zIndex = "999";
-              header.style.transition = "transform 0.8s ease";
-            },
-          });
-        },
-      });
-    }
+    const handleScroll = () => {
+      if (window.scrollY > 40) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header ref={headerRef} className="header">
+    <header className={`header-amishapara ${isScrolled ? "scrolled" : ""}`}>
       <div className="container">
-        <div className="header__content">
-          <div className="header__logo-wrap">
-            <Link href="/">
-              <Image
-                src="/images/logo-companiganjturf.png"
-                alt="Companiganj Turf Zone Logo"
-                width={200}
-                height={60}
-                unoptimized
-                className="header__logo"
-              />
+        <div className="header-amishapara__content">
+          {/* Logo & Brand Name */}
+          <div className="header-amishapara__brand">
+            <Link href="/" className="brand-link">
+              <div className="brand-logo-wrap">
+                <Image
+                  src="/images/the-turf-noakhali-logo.png"
+                  alt="The Turf Noakhali"
+                  width={56}
+                  height={56}
+                  priority
+                  className="brand-logo-img"
+                />
+              </div>
+              <div className="brand-text">
+                <span className="brand-title">THE TURF</span>
+                <span className="brand-subtitle">NOAKHALI</span>
+              </div>
             </Link>
           </div>
 
-
-          <nav className="header__nav-wrap header__nav-wrap--desktop">
+          {/* Desktop Navigation */}
+          <nav className="header-amishapara__nav desktop-nav">
             <HeaderNav menuDataAtt={menuData} />
 
+            {/* Hotline Link */}
+            <a href="tel:01355289797" className="hotline-pill">
+              <Phone size={14} className="hotline-icon" />
+              <span>01355289797</span>
+            </a>
+
+            {/* Account / Sign In */}
             {session?.user ? (
-              <Link href={'/dashboard'} className="header__user-name">
-                {session.user.name}
+              <Link href="/dashboard" className="user-account-btn">
+                <User size={15} />
+                <span>{session.user.name || "Account"}</span>
               </Link>
             ) : (
-              <Link href="/signin">
-                <span className="primary-button">Sign In</span>
+              <Link href="/signin" className="signin-link-btn">
+                <User size={15} />
+                <span>Sign In</span>
               </Link>
             )}
 
-            <Link href="/booking">
-              <span className="primary-button">Book Now</span>
+            {/* Primary Booking CTA */}
+            <Link href="/booking" className="primary-button header-book-btn">
+              <CalendarCheck size={16} />
+              <span>Book Slot</span>
             </Link>
           </nav>
 
+          {/* Mobile Hamburger Toggle */}
+          <button
+            type="button"
+            className="mobile-hamburger-btn"
+            onClick={toggleMenu}
+            aria-label="Toggle navigation menu"
+          >
+            {isMenuOpen ? <CloseIcon size={24} color="#0b3b24" /> : <MenuIcon size={24} color="#0b3b24" />}
+          </button>
 
-          <div className="header__mobile-menu" onClick={toggleMenu}>
-            <Image
-              className="header__mobile-menu-bar"
-              src={MobileMenuBarIcon}
-              alt="mobile nav bar icon"
-            />
-          </div>
-
-
+          {/* Mobile Drawer */}
           {isMenuOpen && (
-            <div className="header__mobile">
-              <div className="header__mobile-header">
-                <div className="header__logo-wrap">
-                  <Link href="/" onClick={toggleMenu}>
+            <div className="mobile-drawer-overlay" onClick={toggleMenu}>
+              <div className="mobile-drawer-card" onClick={(e) => e.stopPropagation()}>
+                <div className="drawer-top">
+                  <Link href="/" onClick={toggleMenu} className="drawer-brand">
                     <Image
-                      src="/images/logo-companiganjturf.png"
-                      alt="Companiganj Turf Zone Logo"
-                      width={200}
-                      height={60}
-                      unoptimized
-                      className="header__logo"
+                      src="/images/the-turf-noakhali-logo.png"
+                      alt="The Turf Noakhali"
+                      width={44}
+                      height={44}
+                      className="brand-logo-img"
                     />
+                    <div className="brand-text">
+                      <span className="brand-title">THE TURF</span>
+                      <span className="brand-subtitle">NOAKHALI</span>
+                    </div>
                   </Link>
+
+                  <button
+                    type="button"
+                    className="drawer-close-btn"
+                    onClick={toggleMenu}
+                    aria-label="Close menu"
+                  >
+                    <CloseIcon size={20} color="#4b5563" />
+                  </button>
                 </div>
 
-                <div
-                  className="header__mobile-menu-cross-wrap"
-                  onClick={toggleMenu}
-                >
-                  <Image
-                    className="header__mobile-menu-cross"
-                    src={MobileMenuBarCross}
-                    alt="close menu"
-                  />
+                <div className="drawer-links">
+                  {menuData.map((item) => (
+                    <Link
+                      key={item.id}
+                      href={item.menuUrl}
+                      onClick={toggleMenu}
+                      className="drawer-nav-item"
+                    >
+                      {item.menuText}
+                    </Link>
+                  ))}
+                </div>
+
+                <div className="drawer-actions">
+                  <a href="tel:01355289797" className="drawer-hotline-btn">
+                    <Phone size={16} />
+                    <span>Call Hotline: 01355289797</span>
+                  </a>
+
+                  {session?.user ? (
+                    <Link
+                      href="/dashboard"
+                      onClick={toggleMenu}
+                      className="drawer-account-btn"
+                    >
+                      <User size={16} />
+                      <span>My Account ({session.user.name})</span>
+                    </Link>
+                  ) : (
+                    <Link
+                      href="/signin"
+                      onClick={toggleMenu}
+                      className="drawer-account-btn"
+                    >
+                      <User size={16} />
+                      <span>Sign In / Register</span>
+                    </Link>
+                  )}
+
+                  <Link
+                    href="/booking"
+                    onClick={toggleMenu}
+                    className="primary-button drawer-book-btn"
+                  >
+                    <CalendarCheck size={18} />
+                    <span>Book Your Slot</span>
+                  </Link>
                 </div>
               </div>
-
-              <nav className="header__nav-wrap header__nav-wrap--mobile">
-                <Link href="/" onClick={toggleMenu}>
-                  <span className="header__nav-item">Home</span>
-                </Link>
-                <Link href="/aboutus" onClick={toggleMenu}>
-                  <span className="header__nav-item">About Us</span>
-                </Link>
-                <Link href="/facilities" onClick={toggleMenu}>
-                  <span className="header__nav-item">Facilities</span>
-                </Link>
-                <Link href="/gallery" onClick={toggleMenu}>
-                  <span className="header__nav-item">Gallery</span>
-                </Link>
-                <Link href="/contactus" onClick={toggleMenu}>
-                  <span className="header__nav-item">Contact Us</span>
-                </Link>
-
-                {session?.user ? (
-                  <Link href="/dashboard" onClick={toggleMenu}>
-                    <span className="header__nav-item header__user-name">
-                      {session.user.name}
-                    </span>
-                  </Link>
-                ) : (
-                  <Link href="/signin" onClick={toggleMenu}>
-                    <span className="primary-button header__nav-item-button--mobile">
-                      Sign In
-                    </span>
-                  </Link>
-                )}
-                <Link href="/booking" onClick={toggleMenu}>
-                  <span className="header__nav-item">Book Now</span>
-                </Link>
-              </nav>
             </div>
           )}
         </div>

@@ -1,285 +1,274 @@
-.booking {
-    padding: rem(10px) 0 rem(50px) 0;
+/* ==========================================================================
+   THE TURF NOAKHALI - DEDICATED BOOKING PAGE (HERO BANNER & HELP BAR)
+   Matching the dark, atmospheric stadium hero from Amishapara Sports Hub
+   ========================================================================== */
+
+.booking-page-root {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  color: #1e293b;
+}
+
+.booking-hero-banner {
+  position: relative;
+  padding: rem(70px) 0 rem(55px);
+  overflow: hidden;
+  background-color: #061a11;
+  text-align: center;
+
+  @include mq(large) {
+    padding: rem(90px) 0 rem(70px);
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    .banner-bg-img {
+      object-fit: cover;
+      opacity: 0.35;
+      filter: saturate(1.1) brightness(0.8);
+    }
+
+    .banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(6, 26, 17, 0.72) 0%,
+        rgba(6, 26, 17, 0.94) 100%
+      );
+    }
+
+    .banner-radial-glow {
+      position: absolute;
+      top: 20%;
+      left: 15%;
+      width: rem(420px);
+      height: rem(420px);
+      background: rgba(16, 185, 129, 0.16);
+      border-radius: 50%;
+      filter: blur(130px);
+      pointer-events: none;
+    }
+  }
+
+  .banner-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: rem(860px);
+    margin: 0 auto;
+    padding: 0 rem(16px);
+  }
+
+  .banner-breadcrumbs {
+    display: inline-flex;
+    align-items: center;
+    gap: rem(8px);
+    font-size: rem(12.5px);
+    font-weight: 700;
+    color: #94a3b8;
+    margin-bottom: rem(16px);
+
+    .crumb-link {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
+
+    .crumb-separator {
+      color: #64748b;
+    }
+
+    .crumb-active {
+      color: #ffffff;
+      font-weight: 800;
+    }
+  }
+
+  .banner-title {
+    font-size: rem(34px);
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    margin-bottom: rem(14px);
+    line-height: 1.15;
+
+    @include mq(medium) {
+      font-size: rem(48px);
+    }
+
     @include mq(large) {
-        padding: rem(50px) 0;
+      font-size: rem(54px);
     }
 
-    &__content {
-        @include mq(large) {
-            display: flex;
-            justify-content: space-between;
-        }
+    .accent-glow {
+      color: #10b981;
+      text-shadow: 0 4px 25px rgba(16, 185, 129, 0.55);
     }
+  }
 
-    &__info-wrap {
-        @include mq(large) {
-            width: 58%;
-        }
+  .banner-desc {
+    font-size: rem(14px);
+    color: #cbd5e1;
+    line-height: 1.6;
+    max-width: rem(680px);
+    margin: 0 auto rem(26px);
+    font-weight: 500;
+
+    @include mq(medium) {
+      font-size: rem(15.5px);
     }
+  }
 
-    &__summary-wrap {
-        margin-top: rem(50px);
-        position: relative;
-        @include mq(large) {
-            width: 38%;
-        }
-    }
+  .banner-pills {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: rem(10px);
 
-    &__summary-sticky {
-        position: sticky;
-        top: rem(120px);
-    }
+    .pill-item {
+      display: inline-flex;
+      align-items: center;
+      gap: rem(8px);
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #e2e8f0;
+      padding: rem(6px) rem(16px);
+      border-radius: rem(999px);
+      font-size: rem(12px);
+      font-weight: 700;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 
-    &__form-wrap {
-        margin-top: rem(25px);
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-        padding: rem(40px) rem(20px);
-        border-radius: rem(10px);
-        @include mq(large) {
-            padding: rem(40px);
-        }
-    }
-
-    &__form-heading {
-        font-size: rem(18px);
-        font-weight: bold;
-        margin-bottom: rem(20px);
-        @include mq(large) {
-            font-size: rem(20px);
-        }
-    }
-
-    &__form {
-        margin-top: rem(20px);
-    }
-
-    &__form-input-wrap {
-        margin-bottom: rem(20px);
-    }
-
-    &__form-label {
-        display: block;
-        margin-bottom: rem(10px);
-    }
-
-    &__form-label-requierd {
-        color: red;
-    }
-
-    &__select {
-        display: block;
-        width: 100%;
-        padding: rem(10px);
-        border: 1px solid #aaa;
-        border-radius: rem(5px);
-    }
-
-    &__form-input {
-        display: block;
-        width: 100%;
-        padding: rem(10px);
-        border: 1px solid #aaa;
-        border-radius: rem(5px);
-    }
-
-    &__payment-wrap {
-        margin-top: rem(25px);
-        border: 1px solid #aaa;
-        padding: rem(20px);
-        border-radius: rem(10px);
-        @include mq(large) {
-            padding: rem(20px) ;
-        }
-    }
-
-    &__payment-heading {
-        font-size: rem(18px);
-        @include mq(large) {
-            font-size: rem(20px);
-        }
-    }
-
-    &__payment-amount {
-        font-size: rem(16px);
-        font-weight: bold;
-        margin-top: rem(20px);
-    }
-
-    &__payment-option-wrap {
-        margin-top: rem(20px);
-    }
-
-    &__payment-option {
-        padding: rem(20px) rem(10px);
+      .pill-icon-circle {
+        width: rem(22px);
+        height: rem(22px);
+        border-radius: 50%;
+        background: rgba(16, 185, 129, 0.2);
+        border: 1px solid rgba(16, 185, 129, 0.4);
+        color: #34d399;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        border: 1px solid #aaa;
-        border-radius: rem(5px);
-    }
-
-    &__payment-label {
-        font-size: rem(14px);
-        margin-left: rem(10px);
-        @include mq(large) {
-            font-size: rem(18px);
-        }
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
-    &__payment-option-logo-wrap {
-        width: 70px;
-    }
-
-    &__payment-option-logo {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    &__payment-divider-wrap {
-        display: flex;
         justify-content: center;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+.booking-view-section {
+  position: relative;
+  z-index: 2;
+  padding: rem(20px) 0 rem(40px);
+
+  .container {
+    max-width: rem(1240px);
+    margin: 0 auto;
+    padding: 0 rem(16px);
+  }
+}
+
+.booking-help-bar {
+  padding: 0 0 rem(80px);
+
+  .container {
+    max-width: rem(1240px);
+    margin: 0 auto;
+    padding: 0 rem(16px);
+  }
+
+  .help-bar-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: rem(24px);
+    padding: rem(24px) rem(28px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: rem(18px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+
+    @include mq(medium) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .help-text {
+      flex: 1;
+
+      h4 {
+        font-size: rem(17px);
+        font-weight: 900;
+        color: #0b3b24;
+        margin-bottom: rem(4px);
+        letter-spacing: -0.3px;
+      }
+
+      p {
+        font-size: rem(13.5px);
+        color: #4b5563;
+        line-height: 1.5;
+        margin: 0;
+      }
+    }
+
+    .help-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: rem(12px);
+
+      .secondary-button {
+        display: inline-flex;
         align-items: center;
-        gap: rem(10px);
+        gap: rem(8px);
+        border: 1.5px solid #0b3b24;
+        color: #0b3b24;
+        padding: rem(10px) rem(20px);
+        border-radius: rem(12px);
+        font-weight: 800;
+        font-size: rem(13px);
+        background: transparent;
+        text-decoration: none;
+        transition: all 0.2s ease;
 
-        hr {
-            width: 100%;
-            height: 1px;
-            background: #aaa;
-            border: none;
+        &:hover {
+          background: #0b3b24;
+          color: #ffffff;
+          transform: translateY(-1px);
         }
-    }
+      }
 
-    &__payment-divider {
-        margin: rem(10px) 0;
-        text-align: center;
-    }
-
-    &__payment-agree-text {
-        margin: rem(10px) 0;
-        font-size: rem(14px);
-    }
-
-    &__payment-button {
-        width: 100%;
-    }
-
-    &__summary-heading {
-        font-size: rem(18px);
-        @include mq(large) {
-            font-size: rem(20px);
-        }
-    }
-
-    &__summary-info-wrap {
-        margin-top: rem(20px);
-    }
-
-    &__summary-user-name {
-        font-size: rem(16px);
-        margin-bottom: rem(10px);
-        @include mq(large) {
-            font-weight: normal;
-        }
-    }
-
-    &__summary-user-contact {
-        font-size: rem(16px);
-        margin-bottom: rem(10px);
-    }
-
-    &__summary-slot-info {
-        margin-top: rem(20px);
-        border: 1px solid #aaa;
-        padding: 0 rem(10px);
-        border-radius: rem(5px);
-
-        p {
-            margin: rem(10px) 0;
-        }
-    }
-
-    &__summary-arena {
-        font-size: rem(16px);
-        font-weight: 600;
-    }
-
-    &__summary-slot {
-        font-size: rem(14px);
-    }
-
-    &__summary-duration {
-        font-size: rem(14px);
-    }
-
-    &__summary-amount-wrap {
-        margin-top: rem(20px);
-        background: #ddd;
-        padding: rem(20px) rem(10px);
-        border-radius: rem(5px);
-        display: flex;
-        justify-content: space-between;
+      .btn-whatsapp-pill {
+        display: inline-flex;
         align-items: center;
-    }
+        gap: rem(8px);
+        background: #25d366;
+        color: #ffffff;
+        padding: rem(10px) rem(20px);
+        border-radius: rem(12px);
+        font-weight: 800;
+        font-size: rem(13px);
+        text-decoration: none;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
 
-    &__summary-amount {
-        font-weight: bold;
-    }
-
-    &__summary-help-wrap {
-        margin-top: rem(20px);
-        border: 1px solid #aaa;
-        padding: 0 rem(10px);
-        border-radius: rem(5px);
-
-        p {
-            margin: rem(10px) 0;
-        }
-    }
-
-    &__summary-help-title {
-        font-size: rem(16px);
-        font-weight: 600;
-    }
-
-    &__summary-help-text {
-        font-size: rem(14px);
-        margin-bottom: rem(15px) !important;
-    }
-
-    &__summary-phone-text {
-        font-size: rem(14px);
-    }
-
-    &__summary-phone {
-        color: $color-primary-light;
-        
         &:hover {
-            text-decoration: underline;
+          background: #1ebd56;
+          box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+          transform: translateY(-1px);
         }
+      }
     }
-
-    &__summary-email {
-        color: $color-primary-light;
-        
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-}
-
-.transactions-summary {
-    margin-top: rem(20px);
-}
-
-.transactions-header {
-    margin-top: rem(30px);
-}
-
-.transactions-title {
-    font-size: rem(30px);
+  }
 }

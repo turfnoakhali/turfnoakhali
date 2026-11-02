@@ -2,28 +2,38 @@ const Menu = [
     {
         id: 1,
         menuText: 'Home',
-        menuUrl:'/'
+        menuUrl: '/'
     },
     {
         id: 2,
-        menuText: 'About Us',
-        menuUrl:'/aboutus'
+        menuText: 'Live Booking',
+        menuUrl: '/booking'
     },
     {
         id: 3,
         menuText: 'Facilities',
-        menuUrl:'/facilities'
+        menuUrl: '/#facilities'
     },
     {
         id: 4,
-        menuText: 'Gallery',
-        menuUrl:'/gallery'
+        menuText: 'Pricing',
+        menuUrl: '/#pricing'
     },
     {
         id: 5,
-        menuText: 'Contact Us',
-        menuUrl:'/contactus'
+        menuText: 'Gallery',
+        menuUrl: '/gallery'
     },
-]
+    {
+        id: 6,
+        menuText: 'Rules & FAQ',
+        menuUrl: '/#faq'
+    },
+    {
+        id: 7,
+        menuText: 'Contact',
+        menuUrl: '/contactus'
+    },
+];
 
-export default Menu
+export default Menu;
