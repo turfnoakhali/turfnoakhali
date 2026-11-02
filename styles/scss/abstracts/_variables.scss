@@ -2,11 +2,10 @@
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
 
-
 /// Regular font family
 /// @type List
-$primary-font: "ProximaNova";
-$secondary-font: "Teko";
+$primary-font: "ProximaNova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$secondary-font: "Teko", sans-serif;
 
 /// font sizes for different width screen
 $fs-heading--extra-large: 48px;
@@ -21,7 +20,6 @@ $fs-secondary-text--small: 14px;
 $fs-primary-button: 15px;
 $fs-seconday-primary-button: 12px;
 
-
 /// font weight for the website
 $fw-normal: normal;
 $fw-extra-bold: 800;
@@ -30,61 +28,58 @@ $fw-semi-bold: 600;
 $fw-semi-medium: 500;
 $fw-light: 300;
 
-/// Brand colors extracted from logo-Companigonjturf.png (Companigonj Turf Zone)
-$color-primary: #0b3b24; // Deep Emerald / Forest Green
+/// Brand colors for The Turf Noakhali (from official logo)
+$color-primary: #0b3b24; // Deep Dark Green from logo
 $color-primary-dark: #062a19; // Dark Forest Green
 $color-primary-light: #15803d; // Pitch Turf Green
-$color-primary-accent: #22c55e; // Bright Green Accent
+$color-primary-accent: #16a34a; // Bright Turf Green Accent
 $color-gold: #d4af37; // Metallic Gold
-$color-gold-light: #e5c158; // Bright Gold Accent
-$color-gold-dark: #b8860b; // Dark Gold Accent
+$color-gold-light: #f3ce65; // Bright Gold Accent
+$color-gold-dark: #b8860b; // Deep Burnished Gold
 
-/// color scheme for the website
+/// Font colors for the website
 /// @type Color
-$fc-primary--dark: rgb(32, 32, 32);
-$fc-primary--gray: #757575;
-$fc-primary--white: rgb(255, 255, 255);
-$fc-secondary--dark: rgb(0, 0, 0);
+$fc-primary--dark: #0b3b24; // Headings: Dark Green
+$fc-heading--dark: #0f172a; // Headings Dark Slate
+$fc-primary--gray: #64748b; // Descriptions: Gray
+$fc-body--gray: #4b5563; // P tags: Slate Gray
+$fc-primary--white: #ffffff;
+$fc-secondary--dark: #1e293b;
 $fc-card--red: #0b3b24;
 $fc-brand-primary: $color-primary;
 $fc-brand-green: $color-primary-light;
 $fc-brand-gold: $color-gold;
 
-
-//background-colors
-$bgc-primary--dark: #051910;
-$bgc-primary--white: rgb(255, 255, 255);
-$bgc-secondary--dark: #08261a;
-$bgc-secondary--white: #F4F7F5;
-$bgc-tertiary--white: #E6F4EA;
+// Background colors
+$bgc-primary--white: #ffffff; // Clean White
+$bgc-secondary--white: #f8fafc; // Light Gray Section
+$bgc-tertiary--white: #f1f5f9; // Slate Tint
+$bgc-card: #ffffff;
+$bgc-primary--dark: #0b3b24;
+$bgc-secondary--dark: #062a19;
 $bgc-nav-open: #062a19;
 $bgc-code: rgb(245, 245, 245);
-$bgc-gray: rgb(242, 242, 242);
-$bgc-blog: rgb(249, 249, 249);
-$bgc-primary-button: linear-gradient(135deg, #15803d, #0b3b24);
-$bgc-primary-button--hover: linear-gradient(135deg, #d4af37, #b8860b);
+$bgc-gray: #f3f4f6;
+$bgc-blog: #f9fafb;
+$bgc-primary-button: #0b3b24;
+$bgc-primary-button--hover: #15803d;
 $bgc-secondary-button--dark: #0b3b24;
 $bgc-secondary-button--light: #15803d;
-$bgc-red-card: #0b3b24;
-$bgc-header: linear-gradient(to right, #062a19, #0b3b24 70%);
-$bgc-footer: linear-gradient(180deg, #051a12 0%, #0b3b24 100%);
+$bgc-header: #ffffff;
+$bgc-footer: #062a19;
 
-//border-colors
+// Border colors
 $brc-primary--black: #000000;
 $brc-primary--white: #ffffff;
 $brc-primary--gold: #d4af37;
 $brc-primary--green: #15803d;
-
+$brc-primary--gray: #e2e8f0;
 
 /// Container's maximum width
 /// @type Length
 $max-width: 1660px !default;
 
-
-
 /// Breakpoints map
-/// @prop {String} keys - Keys are identifiers mapped to a given length
-/// @prop {Map} values - Values are actual breakpoints expressed in pixels
 $breakpoints: (
   'extra-small': 320px,
   'small': 640px,
@@ -92,12 +87,7 @@ $breakpoints: (
   'medium-small': 980px,
   'large': 1024px,
   'extra-large': 1280px,
-  'double-extra-large': 1536px) !default;
+  'double-extra-large': 1536px
+) !default;
 
-
-
-/// Relative or absolute URL where all assets are served from
-/// @type String
-/// @example scss - When using a CDN
-///   $base-url: 'http://cdn.example.com/assets/';
 $base-url: '/assets/' !default;

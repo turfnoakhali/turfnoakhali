@@ -106,3 +106,85 @@
         cursor: pointer;
     }
 }
+
+/* Additional utility buttons for landing page and booking */
+.white-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(8px);
+    padding: rem(12px) rem(28px);
+    background: #ffffff;
+    color: #0b3b24 !important;
+    border-radius: rem(999px);
+    text-transform: uppercase;
+    font-size: rem(13px);
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    border: 1px solid #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        background: #f1f5f9;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.outline-white-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(8px);
+    padding: rem(11px) rem(26px);
+    background: transparent;
+    color: #ffffff !important;
+    border-radius: rem(999px);
+    text-transform: uppercase;
+    font-size: rem(13px);
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #ffffff;
+        color: #ffffff !important;
+        transform: translateY(-2px);
+    }
+}
+
+.gold-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(8px);
+    padding: rem(12px) rem(28px);
+    background: #25d366;
+    color: #ffffff !important;
+    border-radius: rem(999px);
+    text-transform: uppercase;
+    font-size: rem(13px);
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    border: 1px solid #25d366;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        background: #1ebd56;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+    }
+}

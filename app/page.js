@@ -1,12 +1,16 @@
-import React from 'react';
-import SlotBookingView from '@/components/SlotBookingView';
+import React from "react";
+import LandingPage from "@/components/LandingPage";
 
-const home = () => {
-  return (
-    <main style={{ minHeight: '80vh', backgroundColor: '#051810' }}>
-      <SlotBookingView />
-    </main>
-  );
+export const metadata = {
+  title: "The Turf Noakhali | Where Champions Play",
+  description:
+    "Book your football match slot online at The Turf Noakhali. Premium FIFA-quality artificial turf, daylight LED floodlights, 6v6 & 7v7 formats, and instant online confirmation.",
 };
 
-export default home;
+export default function HomePage() {
+  return (
+    <main>
+      <LandingPage />
+    </main>
+  );
+}

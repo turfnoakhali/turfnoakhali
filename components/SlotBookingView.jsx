@@ -8,7 +8,24 @@ import { useSession } from "next-auth/react";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import bkashLogo from "@/public/images/bkash-logo.webp";
-import { Calendar, Clock, CheckCircle2, AlertCircle, X, Tag, User, Phone, FileText, ChevronRight, Sun, Sunset, Moon, Sunrise } from "lucide-react";
+import {
+  Calendar,
+  Clock,
+  CheckCircle2,
+  AlertCircle,
+  X,
+  Tag,
+  User,
+  Phone,
+  FileText,
+  ChevronRight,
+  Sun,
+  Sunset,
+  Moon,
+  Sunrise,
+  ShieldCheck,
+  Layers,
+} from "lucide-react";
 import { calculateSlotPrice, isMaintenanceBlockedSlot, formatBengaliDate, getBengaliSlotPeriod } from "@/lib/pricing";
 
 const ARENA_NAME = "Turf Noakhali";
@@ -24,6 +41,7 @@ export default function SlotBookingView() {
   };
 
   const [selectedDate, setSelectedDate] = useState(getTodayStr());
+  const [periodFilter, setPeriodFilter] = useState("all");
   const [slots, setSlots] = useState([]);
   const [loadingSlots, setLoadingSlots] = useState(false);
   const [arenaPricing, setArenaPricing] = useState(null);
@@ -138,10 +156,6 @@ export default function SlotBookingView() {
   // Price helper for a slot
   const getSlotPriceDetails = (slotTime, date = selectedDate) => {
     return calculateSlotPrice(slotTime, date, arenaPricing);
-  };
-
-  const getSlotPrice = (slotTime, date = selectedDate) => {
-    return calculateSlotPrice(slotTime, date, arenaPricing).finalPrice;
   };
 
   // Open modal when slot "বুক করুন" is clicked
@@ -294,14 +308,14 @@ export default function SlotBookingView() {
     const result = await Swal.fire({
       title: "বুকিং নিশ্চিত করুন",
       html: `
-        <div style="text-align: left; padding: 10px; font-family: sans-serif;">
-          <p style="margin: 6px 0;"><strong>অ্যারেনা:</strong> ${ARENA_NAME}</p>
+        <div style="text-align: left; padding: 10px; font-family: sans-serif; color: #1e293b;">
+          <p style="margin: 6px 0;"><strong>অ্যারেনা:</strong> The Turf Noakhali</p>
           <p style="margin: 6px 0;"><strong>তারিখ:</strong> ${new Date(formData.bookingDate).toLocaleDateString("bn-BD")}</p>
           <p style="margin: 6px 0;"><strong>সময় স্লট:</strong> ${formData.timeSlot}</p>
-          <p style="margin: 6px 0;"><strong>পেমেন্ট:</strong> ${formData.paymentType === "cod" ? "ক্যাশ অন বুকিং" : "বিকাশ এডভান্স"}</p>
-          <p style="margin-top: 12px; border-top: 1px solid #eee; padding-top: 10px;">
+          <p style="margin: 6px 0;"><strong>পেমেন্ট:</strong> ${formData.paymentType === "cod" ? "ক্যাশ অন বুকিং" : "বিকাশ অগ্রিম"}</p>
+          <p style="margin-top: 12px; border-top: 1px solid #e2e8f0; padding-top: 10px;">
             <strong>এখন প্রদীয় পরিমাণ:</strong> 
-            <span style="color: #28a745; font-size: 1.2rem; font-weight: bold;">
+            <span style="color: #10b981; font-size: 1.25rem; font-weight: bold;">
               ৳${formData.paymentType === "cod"
           ? Number(formData.cashAmount || 0).toLocaleString()
           : Number(formData.advanceAmount || 0).toLocaleString()}
@@ -314,7 +328,7 @@ export default function SlotBookingView() {
       confirmButtonText: "হ্যাঁ, বুকিং কনফার্ম করুন",
       cancelButtonText: "বাতিল",
       confirmButtonColor: "#10b981",
-      cancelButtonColor: "#6b7280",
+      cancelButtonColor: "#64748b",
     });
 
     if (!result.isConfirmed) return;
@@ -412,26 +426,54 @@ export default function SlotBookingView() {
     }
   };
 
-  // Helper date buttons (Today, Tomorrow, Day after)
+  // Helper date buttons (Today, Tomorrow, Day after...)
   const getDateOption = (offsetDays) => {
     const d = new Date();
     d.setDate(d.getDate() + offsetDays);
     return {
       dateStr: d.toISOString().split("T")[0],
-      dayName: offsetDays === 0 ? "আজ" : offsetDays === 1 ? "আগামীকাল" : d.toLocaleDateString("bn-BD", { weekday: "short" }),
+      dayName:
+        offsetDays === 0
+          ? "আজ"
+          : offsetDays === 1
+          ? "আগামীকাল"
+          : d.toLocaleDateString("bn-BD", { weekday: "short" }),
       formattedDate: d.toLocaleDateString("bn-BD", { day: "numeric", month: "short" }),
     };
   };
 
-  const quickDates = [getDateOption(0), getDateOption(1), getDateOption(2), getDateOption(3)];
+  const quickDates = [
+    getDateOption(0),
+    getDateOption(1),
+    getDateOption(2),
+    getDateOption(3),
+    getDateOption(4),
+  ];
+
+  // Filter slots based on period
+  const filteredSlots = slots.filter((item) => {
+    if (periodFilter === "all") return true;
+    const periodInfo = getBengaliSlotPeriod(item.slot);
+    if (periodFilter === "morning") return periodInfo.type === "bhor" || periodInfo.type === "sokal";
+    if (periodFilter === "afternoon") return periodInfo.type === "dupur" || periodInfo.type === "bikel";
+    if (periodFilter === "night") return periodInfo.type === "sonda" || periodInfo.type === "raat";
+    return true;
+  });
+
+  const availableCount = slots.filter(
+    (item) => item.status === "available" && !isMaintenanceBlockedSlot(selectedDate, item.slot)
+  ).length;
 
   return (
     <div className="slot-booking-container">
       {/* Top Banner Header */}
       <div className="slot-booking-header">
-        <h1 className="slot-booking-title">Turf Noakhali</h1>
+        <div className="slot-booking-badge">
+          <span>OFFICIAL MATCH SLOT RESERVATIONS</span>
+        </div>
+        <h1 className="slot-booking-title">THE TURF NOAKHALI</h1>
         <p className="slot-booking-subtitle">
-          আপনার সুবিধাজনক সময় নির্বাচন করে সরাসরি স্লট বুকিং সম্পন্ন করুন
+          আপনার পছন্দের দিন ও সময় বেছে নিয়ে অনলাইনে ম্যাচ বুকিং সম্পন্ন করুন • সর্বনিম্ন ৳৫০০ অ্যাডভান্স দিয়ে স্লট কনফার্ম করুন
         </p>
 
         {/* Quick Date Select Tabs */}
@@ -450,7 +492,7 @@ export default function SlotBookingView() {
             ))}
 
             <div className="custom-date-picker-wrap">
-              <Calendar className="calendar-icon" size={18} />
+              <Calendar className="calendar-icon" size={17} />
               <input
                 type="date"
                 className="custom-date-input"
@@ -461,23 +503,64 @@ export default function SlotBookingView() {
             </div>
           </div>
         </div>
+
+        {/* Period Filter Tabs & Available Count Bar */}
+        <div className="slot-filter-row">
+          <div className="period-filter-tabs">
+            <button
+              type="button"
+              className={`filter-tab-btn ${periodFilter === "all" ? "active" : ""}`}
+              onClick={() => setPeriodFilter("all")}
+            >
+              সব স্লট ({slots.length})
+            </button>
+            <button
+              type="button"
+              className={`filter-tab-btn ${periodFilter === "morning" ? "active" : ""}`}
+              onClick={() => setPeriodFilter("morning")}
+            >
+              ☀️ সকাল (০৫:০০ - ১২:০০)
+            </button>
+            <button
+              type="button"
+              className={`filter-tab-btn ${periodFilter === "afternoon" ? "active" : ""}`}
+              onClick={() => setPeriodFilter("afternoon")}
+            >
+              ⛅ বিকাল (১২:০০ - ০৬:০০)
+            </button>
+            <button
+              type="button"
+              className={`filter-tab-btn ${periodFilter === "night" ? "active" : ""}`}
+              onClick={() => setPeriodFilter("night")}
+            >
+              🌙 রাত ও পিক (০৬:০০ - ১২:০০)
+            </button>
+          </div>
+
+          <div className="slot-count-badge">
+            <span className="count-dot"></span>
+            <span>{availableCount}টি স্লট খালি আছে</span>
+          </div>
+        </div>
       </div>
 
       {/* Temporary Maintenance Notice Banner */}
       {isMaintenanceBlockedSlot(selectedDate, "05:00am to 06:00am") && (
-        <div style={{
-          marginTop: '20px',
-          background: 'rgba(239, 68, 68, 0.08)',
-          border: '1px solid rgba(239, 68, 68, 0.22)',
-          borderRadius: '14px',
-          padding: '14px 18px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-          color: '#fca5a5',
-          fontSize: '14px',
-          lineHeight: '1.5'
-        }}>
+        <div
+          style={{
+            marginTop: "20px",
+            background: "rgba(239, 68, 68, 0.08)",
+            border: "1px solid rgba(239, 68, 68, 0.25)",
+            borderRadius: "14px",
+            padding: "14px 18px",
+            display: "flex",
+            alignItems: "center",
+            gap: "12px",
+            color: "#fca5a5",
+            fontSize: "14px",
+            lineHeight: "1.5",
+          }}
+        >
           <AlertCircle size={22} color="#ef4444" style={{ flexShrink: 0 }} />
           <div>
             <strong>বিশেষ বিজ্ঞপ্তি:</strong> আগামী <strong>১ অক্টোবর রাত ১০:০০ টা</strong> পর্যন্ত সব ধরণের স্লট বুকিং সাময়িকভাবে বন্ধ থাকবে। ১ অক্টোবর রাত ১০:০০ টা থেকে বুকিং পুনরায় চালু হবে।
@@ -490,30 +573,32 @@ export default function SlotBookingView() {
         {loadingSlots ? (
           <div className="slots-loading-state">
             <div className="spinner"></div>
-            <p>স্লটের সময়সূচী লোড হচ্ছে...</p>
+            <p>স্লটের সময়সূচী ও রেট লোড হচ্ছে...</p>
           </div>
-        ) : slots.length === 0 ? (
+        ) : filteredSlots.length === 0 ? (
           <div className="slots-empty-state">
             <AlertCircle size={40} color="#f59e0b" />
-            <p>এই তারিখে কোনো স্লট পাওয়া যায়নি</p>
+            <p>এই সময়ে কোনো স্লট পাওয়া যায়নি। অন্য সময় ফিল্টার নির্বাচন করুন।</p>
           </div>
         ) : (
           <div className="slots-grid">
-            {slots.map((item) => {
+            {filteredSlots.map((item) => {
               const priceInfo = getSlotPriceDetails(item.slot);
               const periodInfo = getBengaliSlotPeriod(item.slot);
-              const PeriodIcon = periodInfo.type === "bhor" 
-                ? Sunrise 
-                : (periodInfo.type === "sokal" || periodInfo.type === "dupur") 
-                ? Sun 
-                : (periodInfo.type === "bikel" || periodInfo.type === "sonda") 
-                ? Sunset 
-                : Moon;
-              const isBlocked = item.status === "blocked" || isMaintenanceBlockedSlot(selectedDate, item.slot);
+              const PeriodIcon =
+                periodInfo.type === "bhor"
+                  ? Sunrise
+                  : periodInfo.type === "sokal" || periodInfo.type === "dupur"
+                  ? Sun
+                  : periodInfo.type === "bikel" || periodInfo.type === "sonda"
+                  ? Sunset
+                  : Moon;
+
+              const isBlocked =
+                item.status === "blocked" || isMaintenanceBlockedSlot(selectedDate, item.slot);
               const isAvailable = !isBlocked && item.status === "available";
               const isBooked = !isBlocked && item.status === "booked";
               const isHolding = !isBlocked && item.status === "holding";
-              const isPast = !isBlocked && item.status === "past";
 
               return (
                 <div
@@ -542,6 +627,7 @@ export default function SlotBookingView() {
                     </div>
                   </div>
 
+                  {/* Slot Time & Price */}
                   <div className="slot-card-header">
                     <div className="slot-time-box">
                       <Clock size={16} className="clock-icon" />
@@ -549,38 +635,62 @@ export default function SlotBookingView() {
                     </div>
                     <div className="slot-price-tag">
                       {priceInfo.weekdayDiscountAmount > 0 ? (
-                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '3px' }}>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                            <span style={{ textDecoration: 'line-through', color: '#6b7280', fontSize: '0.75rem', fontWeight: '500' }}>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-end",
+                            gap: "2px",
+                          }}
+                        >
+                          <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                            <span
+                              style={{
+                                textDecoration: "line-through",
+                                color: "#64748b",
+                                fontSize: "0.75rem",
+                                fontWeight: "500",
+                              }}
+                            >
                               ৳{priceInfo.basePrice.toLocaleString("bn-BD")}
                             </span>
-                            <span style={{ fontWeight: '800', color: '#10b981', fontSize: '1.1rem', letterSpacing: '-0.3px' }}>
+                            <span
+                              style={{
+                                fontWeight: "800",
+                                color: "#10b981",
+                                fontSize: "1.1rem",
+                                letterSpacing: "-0.3px",
+                              }}
+                            >
                               ৳{priceInfo.finalPrice.toLocaleString("bn-BD")}
                             </span>
                           </div>
-                          <span style={{
-                            fontSize: '0.65rem',
-                            backgroundColor: '#10b981',
-                            color: '#061a11',
-                            padding: '1px 7px',
-                            borderRadius: '4px',
-                            fontWeight: '800',
-                            letterSpacing: '0.3px',
-                            boxShadow: '0 2px 6px rgba(16,185,129,0.2)'
-                          }}>
+                          <span
+                            style={{
+                              fontSize: "0.65rem",
+                              backgroundColor: "#10b981",
+                              color: "#061a11",
+                              padding: "1px 7px",
+                              borderRadius: "4px",
+                              fontWeight: "800",
+                              letterSpacing: "0.3px",
+                              boxShadow: "0 2px 6px rgba(16,185,129,0.25)",
+                            }}
+                          >
                             ২০% ছাড়
                           </span>
                         </div>
                       ) : (
-                        <span style={{ fontWeight: '800', color: '#10b981', fontSize: '1.1rem' }}>
+                        <span style={{ fontWeight: "800", color: "#10b981", fontSize: "1.1rem" }}>
                           ৳{priceInfo.finalPrice.toLocaleString("bn-BD")}
                         </span>
                       )}
                     </div>
                   </div>
 
+                  {/* Duration & Availability Badge */}
                   <div className="slot-card-body">
-                    <span className="slot-meta-info">৬০ মিনিট</span>
+                    <span className="slot-meta-info">৬০ মিনিট • 6v6/7v7</span>
                     <span
                       className={`slot-status-badge ${
                         isBlocked
@@ -616,6 +726,7 @@ export default function SlotBookingView() {
                     </span>
                   </div>
 
+                  {/* Action CTA Button */}
                   <div className="slot-card-footer">
                     <button
                       type="button"
@@ -653,11 +764,31 @@ export default function SlotBookingView() {
             <div className="modal-pill-bar"></div>
 
             {/* Close Button */}
-            <button type="button" className="modal-close-btn" onClick={handleCloseModal}>
+            <button
+              type="button"
+              className="modal-close-btn"
+              onClick={handleCloseModal}
+              aria-label="Close modal"
+            >
               <X size={20} />
             </button>
 
-            {/* Slot Header Info (Matching User Screenshot Layout) */}
+            {/* Official Branding Header */}
+            <div className="modal-brand-header">
+              <Image
+                src="/images/the-turf-noakhali-logo.png"
+                alt="The Turf Noakhali"
+                width={42}
+                height={42}
+                className="modal-logo-img"
+              />
+              <div className="modal-brand-info">
+                <span className="modal-brand-title">THE TURF NOAKHALI</span>
+                <span className="modal-brand-tag">অফিসিয়াল ম্যাচ স্লট রিজার্ভেশন</span>
+              </div>
+            </div>
+
+            {/* Slot Header Info */}
             <div className="modal-slot-header">
               <div className="modal-slot-time-row">
                 <h2 className="modal-slot-time">{selectedSlot.slot}</h2>
@@ -666,7 +797,11 @@ export default function SlotBookingView() {
                 </div>
               </div>
               <div className="modal-slot-subtitle">
-                📅 {formatBengaliDate(selectedDate)} ({selectedDate === getTodayStr() ? "আজ" : getBengaliSlotPeriod(selectedSlot.slot).label}) • {getBengaliSlotPeriod(selectedSlot.slot).label} • ৬০ মিনিট
+                📅 {formatBengaliDate(selectedDate)} (
+                {selectedDate === getTodayStr()
+                  ? "আজ"
+                  : getBengaliSlotPeriod(selectedSlot.slot).label}
+                ) • {getBengaliSlotPeriod(selectedSlot.slot).label} • ৬০ মিনিট ম্যাচ
               </div>
             </div>
 
@@ -675,13 +810,14 @@ export default function SlotBookingView() {
               {(isStaff || isGuest) && (
                 <>
                   <div className="modal-input-group">
+                    <label className="modal-field-label">আপনার পুরো নাম:</label>
                     <div className="modal-input-wrapper">
                       <User size={18} className="input-field-icon" />
                       <input
                         type="text"
                         name="bookingForName"
                         className="modal-input"
-                        placeholder="আপনার নাম"
+                        placeholder="যেমন: আরিয়ান আহমেদ"
                         value={formData.bookingForName}
                         onChange={handleChange}
                         required
@@ -693,10 +829,11 @@ export default function SlotBookingView() {
                   </div>
 
                   <div className="modal-input-group">
+                    <label className="modal-field-label">সচল মোবাইল নম্বর:</label>
                     <div className="modal-input-wrapper">
                       <Phone size={18} className="input-field-icon" />
                       <input
-                        type="text"
+                        type="tel"
                         name="bookingForPhone"
                         className="modal-input"
                         placeholder="01XXXXXXXXX"
@@ -717,7 +854,11 @@ export default function SlotBookingView() {
                 <label className="modal-section-label">পেমেন্ট মাধ্যম:</label>
 
                 <div className="modal-payment-options">
-                  <label className={`modal-payment-option-card ${formData.paymentType === "advance" ? "active" : ""}`}>
+                  <label
+                    className={`modal-payment-option-card ${
+                      formData.paymentType === "advance" ? "active" : ""
+                    }`}
+                  >
                     <input
                       type="radio"
                       name="paymentType"
@@ -726,13 +867,28 @@ export default function SlotBookingView() {
                       onChange={handleChange}
                     />
                     <div className="payment-option-content">
-                      <span className="payment-option-title">বিকাশে অ্যাডভান্স (সর্বনিম্ন ৳{MIN_ADVANCE})</span>
+                      <span className="payment-option-title">
+                        বিকাশ অনলাইন অগ্রিম (সর্বনিম্ন ৳{MIN_ADVANCE})
+                      </span>
+                      <span className="payment-option-sub">
+                        অবশিষ্ট টাকা মাঠে খেলার সময় পরিশোধযোগ্য
+                      </span>
                     </div>
-                    <Image src={bkashLogo} alt="bKash" width={32} height={32} className="payment-logo" />
+                    <Image
+                      src={bkashLogo}
+                      alt="bKash"
+                      width={34}
+                      height={34}
+                      className="payment-logo"
+                    />
                   </label>
 
                   {canUseCOD && (
-                    <label className={`modal-payment-option-card ${formData.paymentType === "cod" ? "active" : ""}`}>
+                    <label
+                      className={`modal-payment-option-card ${
+                        formData.paymentType === "cod" ? "active" : ""
+                      }`}
+                    >
                       <input
                         type="radio"
                         name="paymentType"
@@ -741,7 +897,8 @@ export default function SlotBookingView() {
                         onChange={handleChange}
                       />
                       <div className="payment-option-content">
-                        <span className="payment-option-title">ক্যাশ অন বুকিং</span>
+                        <span className="payment-option-title">ক্যাশ অন বুকিং (অন-গ্রাউন্ড)</span>
+                        <span className="payment-option-sub">অ্যাডমিন / স্টাফ প্যানেল অনুমোদিত</span>
                       </div>
                     </label>
                   )}
@@ -751,9 +908,14 @@ export default function SlotBookingView() {
               {/* Advance Amount Custom Input */}
               {formData.paymentType === "advance" && (
                 <div className="modal-input-group">
-                  <label className="modal-field-label">অ্যাডভান্সের পরিমাণ (৳):</label>
+                  <label className="modal-field-label">অগ্রিম প্রদানের পরিমাণ (৳):</label>
                   <div className="modal-input-wrapper">
-                    <span className="input-field-icon" style={{ color: "#10b981", fontWeight: "bold", fontSize: "16px" }}>৳</span>
+                    <span
+                      className="input-field-icon"
+                      style={{ color: "#10b981", fontWeight: "bold", fontSize: "16px" }}
+                    >
+                      ৳
+                    </span>
                     <input
                       type="number"
                       min={MIN_ADVANCE}
@@ -785,7 +947,12 @@ export default function SlotBookingView() {
                 <div className="modal-input-group">
                   <label className="modal-field-label">ক্যাশ পেমেন্ট পরিমাণ (৳):</label>
                   <div className="modal-input-wrapper">
-                    <span className="input-field-icon" style={{ color: "#10b981", fontWeight: "bold", fontSize: "16px" }}>৳</span>
+                    <span
+                      className="input-field-icon"
+                      style={{ color: "#10b981", fontWeight: "bold", fontSize: "16px" }}
+                    >
+                      ৳
+                    </span>
                     <input
                       type="number"
                       name="cashAmount"
@@ -800,7 +967,7 @@ export default function SlotBookingView() {
 
               {/* Coupon Code Section */}
               <div className="modal-input-group">
-                <label className="modal-field-label">কুপন কোড (ঐচ্ছিক):</label>
+                <label className="modal-field-label">কুপন কোড (যদি থাকে):</label>
                 <div className="coupon-input-flex">
                   <div className="modal-input-wrapper flex-1">
                     <Tag size={16} className="input-field-icon" />
@@ -808,7 +975,7 @@ export default function SlotBookingView() {
                       type="text"
                       name="couponCode"
                       className="modal-input text-uppercase"
-                      placeholder="কুপন কোড থাকলে দিন"
+                      placeholder="যেমন: TURF100"
                       value={formData.couponCode}
                       onChange={handleChange}
                       disabled={!!couponData}
@@ -830,7 +997,7 @@ export default function SlotBookingView() {
                       className="modal-remove-btn"
                       onClick={handleRemoveCoupon}
                     >
-                      সরান
+                      বাতিল
                     </button>
                   )}
                 </div>
@@ -844,13 +1011,14 @@ export default function SlotBookingView() {
 
               {/* Notes Input */}
               <div className="modal-input-group">
+                <label className="modal-field-label">বিশেষ নোট বা দলের নাম (ঐচ্ছিক):</label>
                 <div className="modal-input-wrapper">
                   <FileText size={18} className="input-field-icon" />
                   <input
                     type="text"
                     name="notes"
                     className="modal-input"
-                    placeholder="বিশেষ কোনো নোট বা অনুরোধ (ঐচ্ছিক)"
+                    placeholder="যেমন: নোয়াখালী এফসি বনাম সোনাইমুড়ী রাইডার্স"
                     value={formData.notes}
                     onChange={handleChange}
                   />
@@ -860,8 +1028,14 @@ export default function SlotBookingView() {
               {/* Summary box */}
               <div className="modal-summary-box">
                 <div className="summary-row">
-                  <span>স্লট মূল মূল্য:</span>
-                  <span style={weekdayDiscountAmount > 0 ? { textDecoration: 'line-through', opacity: 0.7 } : {}}>
+                  <span>স্লটের মূল মূল্য:</span>
+                  <span
+                    style={
+                      weekdayDiscountAmount > 0
+                        ? { textDecoration: "line-through", opacity: 0.7 }
+                        : {}
+                    }
+                  >
                     ৳{slotBasePrice.toLocaleString("bn-BD")}
                   </span>
                 </div>
@@ -869,31 +1043,51 @@ export default function SlotBookingView() {
                 {weekdayDiscountAmount > 0 && (
                   <div className="summary-row discount-row">
                     <span>কর্মদিবস ছাড় (২০%):</span>
-                    <span style={{ color: '#166534', fontWeight: 'bold' }}>- ৳{weekdayDiscountAmount.toLocaleString("bn-BD")}</span>
+                    <span style={{ color: "#34d399", fontWeight: "bold" }}>
+                      - ৳{weekdayDiscountAmount.toLocaleString("bn-BD")}
+                    </span>
                   </div>
                 )}
 
                 {couponData && (
                   <div className="summary-row discount-row">
                     <span>কুপন ছাড়:</span>
-                    <span style={{ color: '#dc2626', fontWeight: 'bold' }}>- ৳{couponDiscountAmount.toLocaleString("bn-BD")}</span>
+                    <span style={{ color: "#f87171", fontWeight: "bold" }}>
+                      - ৳{couponDiscountAmount.toLocaleString("bn-BD")}
+                    </span>
                   </div>
                 )}
 
                 <div className="summary-row highlight-row">
-                  <span>মোট পরিশোধযোগ্য স্লট মূল্য:</span>
+                  <span>মোট প্রদেয় স্লট ফি:</span>
                   <span className="payable-price">
                     ৳{finalPrice.toLocaleString("bn-BD")}
                   </span>
                 </div>
 
                 {formData.paymentType === "advance" && (
-                  <div className="summary-row" style={{ marginTop: '6px', paddingTop: '6px', borderTop: '1px dashed #cbd5e1' }}>
-                    <span>এখন প্রদীয় অগ্রিম:</span>
-                    <span style={{ fontWeight: 'bold', color: '#10b981' }}>
-                      ৳{Number(formData.advanceAmount || 0).toLocaleString("bn-BD")}
-                    </span>
-                  </div>
+                  <>
+                    <div
+                      className="summary-row"
+                      style={{
+                        marginTop: "6px",
+                        paddingTop: "8px",
+                        borderTop: "1px dashed rgba(255, 255, 255, 0.12)",
+                      }}
+                    >
+                      <span>এখন প্রদীয় অনলাইন অগ্রিম:</span>
+                      <span style={{ fontWeight: "800", color: "#10b981", fontSize: "1.05rem" }}>
+                        ৳{Number(formData.advanceAmount || 0).toLocaleString("bn-BD")}
+                      </span>
+                    </div>
+
+                    <div className="summary-row" style={{ color: "#94a3b8", fontSize: "12px" }}>
+                      <span>মাঠে খেলার সময় অবশিষ্ট দেয়:</span>
+                      <span style={{ color: "#e2e8f0", fontWeight: "600" }}>
+                        ৳{Math.max(0, finalPrice - (formData.advanceAmount || 0)).toLocaleString("bn-BD")}
+                      </span>
+                    </div>
+                  </>
                 )}
               </div>
 
@@ -903,13 +1097,14 @@ export default function SlotBookingView() {
                 disabled={submitting}
                 className="modal-hold-submit-btn"
               >
-                {submitting ? "প্রসেসিং হচ্ছে..." : "বুকিং নিশ্চিত করুন"}
+                {submitting ? "বুকিং প্রসেসিং হচ্ছে..." : "বুকিং নিশ্চিত করুন"}
               </button>
 
-              {/* Bottom Notice Text */}
-              <p className="modal-footer-disclaimer">
-                পেমেন্ট সম্পন্ন হলে আপনার স্লট বুকিং সাথে সাথে নিশ্চিত হবে
-              </p>
+              {/* Trust Badge Disclaimer */}
+              <div className="modal-trust-badge">
+                <ShieldCheck size={16} className="trust-icon" />
+                <span>বিকাশ সুরক্ষিত পেমেন্ট গেটওয়ের মাধ্যমে তাত্ক্ষণিক নিশ্চিতকরণ</span>
+              </div>
             </form>
           </div>
         </div>

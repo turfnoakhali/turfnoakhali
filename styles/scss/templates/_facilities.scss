@@ -1,6 +1,43 @@
 .facilities {
-    padding-top: rem(50px);
-    @include mq(large) {
-        padding-top: rem(100px);
+  padding: rem(60px) 0 rem(80px);
+  background-color: #040d08;
+  min-height: 80vh;
+
+  .our-facilities__heading {
+    color: #ffffff;
+    margin-bottom: rem(20px);
+  }
+
+  .our-facilities__column {
+    background: #082216;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    border-radius: rem(20px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    padding: rem(36px);
+  }
+
+  .our-facilities__list-heading {
+    color: #ffffff;
+    font-size: rem(22px);
+    font-weight: 800;
+  }
+
+  .our-facilities__list {
+    margin: rem(24px) 0;
+  }
+
+  .our-facilities__list-item {
+    font-size: rem(16px);
+    color: #cbd5e1;
+    margin-bottom: rem(12px);
+
+    &--green::before {
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
     }
+  }
+
+  .our-facilities__button {
+    margin-top: rem(20px);
+  }
 }

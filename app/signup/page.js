@@ -1,12 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import SignupImage from "@/public/images/sky-signin.jpg";
-import { toast } from "react-hot-toast";
-
+import { User, Phone, Mail, Lock, Eye, EyeOff, ShieldCheck, ArrowRight } from "lucide-react";
+import toast from "react-hot-toast";
 
 const isValidBDPhone = (phone) => {
   const bdRegex = /^(013|014|015|016|017|018|019)\d{8}$/;
@@ -30,18 +29,17 @@ export default function SignupPage() {
   });
 
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
 
     if (form.password !== form.confirmPassword) {
       toast.error("Passwords do not match");
       setLoading(false);
       return;
     }
-
 
     if (!isValidBDPhone(form.phone)) {
       toast.error(
@@ -50,7 +48,6 @@ export default function SignupPage() {
       setLoading(false);
       return;
     }
-
 
     if (!isValidEmail(form.email)) {
       toast.error("Please enter a valid email address");
@@ -68,10 +65,10 @@ export default function SignupPage() {
       const data = await res.json();
 
       if (res.ok) {
-        toast.success("Signup successful!");
-        setTimeout(() => router.push("/dashboard"), 1000);
+        toast.success("Account created successfully!");
+        setTimeout(() => router.push("/dashboard"), 1200);
       } else {
-        toast.error(data?.error || "Something went wrong");
+        toast.error(data?.error || "Failed to create account");
       }
     } catch (error) {
       console.error(error);
@@ -82,106 +79,163 @@ export default function SignupPage() {
   };
 
   return (
-    <section className="signup">
-      <div className="container">
-        <div className="signup__content">
-          <div className="signup__form-wrap">
-            <h3 className="secondary-heading signup__heading">
-              Create your account
-            </h3>
-            <p className="primary-text signup__text">
-              Turf Noakhali - Premier Football Experience
+    <section className="auth-prestige-section">
+      <div className="auth-prestige-card">
+        {/* Left Visual Column */}
+        <div className="auth-visual-col">
+          <Image
+            src="/images/hero-banner-bright.jpg"
+            alt="The Turf Noakhali"
+            fill
+            priority
+            className="auth-bg-img"
+          />
+          <div className="auth-overlay"></div>
+          <div className="auth-visual-content">
+            <div className="auth-badge">
+              <span>JOIN THE ARENA</span>
+            </div>
+            <h2 className="auth-hero-title">
+              THE TURF <br />
+              <span className="text-gradient-emerald">NOAKHALI</span>
+            </h2>
+            <p className="auth-hero-sub">
+              Create your account to unlock priority slot bookings, earn discounts, and track all your match receipts in one place.
             </p>
+            <div className="auth-trust-pill">
+              <ShieldCheck size={16} className="text-emerald-400" />
+              <span>Instant Online bKash & Nagad Integration</span>
+            </div>
+          </div>
+        </div>
 
-            <form className="signup__form" onSubmit={handleSubmit}>
-              <label className="signup__form-label">Full Name</label>
-              <input
-                className="signup__form-input"
-                value={form.name}
-                onChange={(e) =>
-                  setForm({ ...form, name: e.target.value })
-                }
-                required
+        {/* Right Form Column */}
+        <div className="auth-form-col">
+          <div className="auth-form-header">
+            <Link href="/" className="auth-logo-link">
+              <Image
+                src="/images/the-turf-noakhali-logo.png"
+                alt="The Turf Noakhali"
+                width={54}
+                height={54}
+                className="auth-logo"
               />
-
-              <label className="signup__form-label">Phone</label>
-              <input
-                className="signup__form-input"
-                placeholder="01XXXXXXXXX"
-                value={form.phone}
-                maxLength={11}
-                onChange={(e) =>
-                  setForm({
-                    ...form,
-                    phone: e.target.value.replace(/\D/g, ""),
-                  })
-                }
-                required
-              />
-
-              <label className="signup__form-label">Email</label>
-              <input
-                type="email"
-                className="signup__form-input"
-                value={form.email}
-                onChange={(e) =>
-                  setForm({ ...form, email: e.target.value })
-                }
-                required
-              />
-
-              <label className="signup__form-label">Password</label>
-              <input
-                type="password"
-                className="signup__form-input"
-                value={form.password}
-                onChange={(e) =>
-                  setForm({ ...form, password: e.target.value })
-                }
-                required
-              />
-
-              <label className="signup__form-label">
-                Confirm Password
-              </label>
-              <input
-                type="password"
-                className="signup__form-input"
-                value={form.confirmPassword}
-                onChange={(e) =>
-                  setForm({
-                    ...form,
-                    confirmPassword: e.target.value,
-                  })
-                }
-                required
-              />
-
-              <button
-                className="secondary-button signup__button"
-                type="submit"
-                disabled={loading}
-              >
-                {loading ? <span className="loader" /> : "Sign up"}
-              </button>
-
-              <p className="signup__acc-text">
-                Already have an account?{" "}
-                <Link href="/signin">
-                  <span className="signup__link-text">Sign In</span>
-                </Link>
-              </p>
-            </form>
+            </Link>
+            <h3 className="auth-title">Create Account</h3>
+            <p className="auth-sub">Enter your details to register as a player</p>
           </div>
 
-          <div className="signup__image-wrap">
-            <Image
-              src={SignupImage}
-              alt="Signup"
-              width={500}
-              className="signup__image"
-            />
-          </div>
+          <form className="auth-form" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label className="form-label">Full Name</label>
+              <div className="form-input-box">
+                <User size={17} className="input-icon" />
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="e.g. Ahad Chowdhury"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Phone Number</label>
+              <div className="form-input-box">
+                <Phone size={17} className="input-icon" />
+                <input
+                  type="tel"
+                  className="form-input"
+                  placeholder="01XXXXXXXXX"
+                  value={form.phone}
+                  maxLength={11}
+                  onChange={(e) =>
+                    setForm({
+                      ...form,
+                      phone: e.target.value.replace(/\D/g, ""),
+                    })
+                  }
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Email Address</label>
+              <div className="form-input-box">
+                <Mail size={17} className="input-icon" />
+                <input
+                  type="email"
+                  className="form-input"
+                  placeholder="yourname@gmail.com"
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Password</label>
+              <div className="form-input-box">
+                <Lock size={17} className="input-icon" />
+                <input
+                  type={showPassword ? "text" : "password"}
+                  className="form-input"
+                  placeholder="Create a strong password"
+                  value={form.password}
+                  onChange={(e) => setForm({ ...form, password: e.target.value })}
+                  required
+                />
+                <button
+                  type="button"
+                  className="eye-toggle-btn"
+                  onClick={() => setShowPassword(!showPassword)}
+                  aria-label="Toggle password visibility"
+                >
+                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Confirm Password</label>
+              <div className="form-input-box">
+                <Lock size={17} className="input-icon" />
+                <input
+                  type="password"
+                  className="form-input"
+                  placeholder="Re-enter password"
+                  value={form.confirmPassword}
+                  onChange={(e) =>
+                    setForm({
+                      ...form,
+                      confirmPassword: e.target.value,
+                    })
+                  }
+                  required
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="primary-button auth-submit-btn"
+            >
+              <span>{loading ? "Creating Account..." : "Sign Up"}</span>
+              <ArrowRight size={16} />
+            </button>
+
+            <div className="auth-footer-prompt">
+              <span>Already have an account? </span>
+              <Link href="/signin" className="auth-action-link">
+                Sign In
+              </Link>
+            </div>
+          </form>
         </div>
       </div>
     </section>
