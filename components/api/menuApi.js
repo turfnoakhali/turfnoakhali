@@ -6,33 +6,28 @@ const Menu = [
     },
     {
         id: 2,
-        menuText: 'Live Booking',
-        menuUrl: '/booking'
-    },
-    {
-        id: 3,
         menuText: 'Facilities',
         menuUrl: '/#facilities'
     },
     {
-        id: 4,
+        id: 3,
         menuText: 'Pricing',
         menuUrl: '/#pricing'
     },
     {
-        id: 5,
+        id: 4,
         menuText: 'Gallery',
-        menuUrl: '/gallery'
+        menuUrl: '/#gallery'
     },
     {
-        id: 6,
+        id: 5,
         menuText: 'Rules & FAQ',
         menuUrl: '/#faq'
     },
     {
-        id: 7,
+        id: 6,
         menuText: 'Contact',
-        menuUrl: '/contactus'
+        menuUrl: '/#contact'
     },
 ];
 

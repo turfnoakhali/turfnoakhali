@@ -146,19 +146,30 @@
 
         .contact-item {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: rem(10px);
             font-size: rem(14px);
-            color: #94a3b8; /* Gray */
+            line-height: 1.4;
+            color: #e2e8f0;
 
             .contact-icon {
                 color: #22c55e;
                 flex-shrink: 0;
-                margin-top: rem(2px);
+                margin-top: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            span,
+            a {
+                color: #e2e8f0;
+                line-height: 1.4;
+                display: inline-flex;
+                align-items: center;
             }
 
             a {
-                color: #e2e8f0;
                 text-decoration: none;
                 transition: color 0.2s ease;
 
