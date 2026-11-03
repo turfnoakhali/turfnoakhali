@@ -18,7 +18,7 @@ export default function ToastProvider() {
         success: {
           duration: 3000,
           iconTheme: {
-            primary: '#10b981',
+            primary: '#000000',
             secondary: '#fff',
           },
         },

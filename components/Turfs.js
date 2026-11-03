@@ -24,7 +24,7 @@ const Turfs = () => {
                                     <span className='our-turfs__image-title'>Turf Noakhali</span>
                                 </div>
                                 <h3 className='our-turfs__turf-name'>Turf Noakhali</h3>
-                                <p className='our-turfs__turf-text'>Premium football turf experience in Companigonj</p>
+                                <p className='our-turfs__turf-text'>Premium football turf experience in Begumganj, Noakhali</p>
                             </div>
                         </Link>
                     </div>

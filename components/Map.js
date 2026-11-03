@@ -8,7 +8,7 @@ const Map = () => {
                 <div className="map__content">
                     <div className='map__skyturf'>
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.023344707103!2d90.96260507438787!3d23.639334993033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37546900120d1447%3A0x129756cfae422568!2sCompanigonj%20Turf%20Zone!5e0!3m2!1sen!2sbd!4v1789580638671!5m2!1sen!2sbd"
+                            src="https://maps.google.com/maps?q=Chowrasta-Maijdee+Road,+Begumganj,+Noakhali&t=&z=15&ie=UTF8&iwloc=&output=embed"
                             width="100%"
                             height="450"
                             style={{ border: 0, borderRadius: '16px', border: '1px solid rgba(16, 185, 129, 0.25)' }}
@@ -16,9 +16,10 @@ const Map = () => {
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
                             className='map__map'
+                            title="The Turf Noakhali Location"
                         ></iframe>
                         <h3 className='map-turf-name' style={{ color: '#ffffff', fontSize: '24px', fontWeight: '800', marginTop: '16px' }}>The Turf Noakhali</h3>
-                        <p className='map-turf-text' style={{ color: '#10b981', fontSize: '15px' }}>Premier Football Experience in Noakhali • Open 24/7</p>
+                        <p className='map-turf-text' style={{ color: '#e4e4e7', fontSize: '15px' }}>জয়নাল আবেদীন স্কুল ও গ্লোব ফ্যাক্টরির মধ্যবর্তী, চৌরাস্তা-মাইজদী সড়ক, বেগমগঞ্জ, নোয়াখালী • Open 24/7</p>
                     </div>
                 </div>
             </div>

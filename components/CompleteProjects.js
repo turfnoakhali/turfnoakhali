@@ -19,8 +19,8 @@ const CompleteProjects = () => {
                     </div>
                     <div className="projects__card-content-wrap">
                         <h3 className='projects__card-heading'>Turf Noakhali</h3>
-                        <p className='projects__card-text'>Turf Noakhali is a state-of-the-art artificial turf facility located in Companigonj. Fully owned and operated by Turf Noakhali, it offers a top-notch playing environment with premium artificial grass and floodlights for all football enthusiasts.</p>
-                        <p className='projects__card-location'>Companigonj</p>
+                        <p className='projects__card-text'>Turf Noakhali is a state-of-the-art artificial turf facility located in Begumganj, Noakhali. Fully owned and operated by Turf Noakhali, it offers a top-notch playing environment with premium artificial grass and floodlights for all football enthusiasts.</p>
+                        <p className='projects__card-location'>Begumganj, Noakhali</p>
                     </div>
                 </div>
 

@@ -63,7 +63,7 @@ export default function BookingPage() {
               <div className="pill-icon-circle">
                 <Users size={13} />
               </div>
-              <span>6-7 Players (Per Team)</span>
+              <span>9-A Side (Per Team)</span>
             </div>
 
             <div className="pill-item">

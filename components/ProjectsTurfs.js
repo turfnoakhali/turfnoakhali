@@ -19,7 +19,7 @@ const ProjectsTurfs = () => {
                     </div>
                     <div className="projects__turf-content-wrap">
                         <h3 className='projects__turf-heading'>Turf Noakhali</h3>
-                        <p className='projects__turf-location'>Companigonj</p>
+                        <p className='projects__turf-location'>Begumganj, Noakhali</p>
                         <p className='projects__turf-type'>Sports Turf</p>
                         <p className='projects__turf-est'>2024</p>
                         <p className='projects__turf-tag'>Owned & Operated by Turf Noakhali</p>

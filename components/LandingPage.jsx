@@ -56,9 +56,9 @@ const LandingPage = () => {
       desc: "Dedicated secure parking space for players' motorbikes and cars right at the venue.",
     },
     {
-      icon: Droplets,
-      title: "Drinking Water",
-      desc: "Free purified and cold mineral water dispenser available for all active teams.",
+      icon: Heart,
+      title: "First Aid Support",
+      desc: "Emergency first aid medical kit and ice packs available on-ground for match safety.",
     },
     {
       icon: Users,
@@ -260,8 +260,8 @@ const LandingPage = () => {
       a: "Please arrive at least 15 minutes before your scheduled slot so players can gear up in the changing rooms and start right on time.",
     },
     {
-      q: "Is water provided at the ground?",
-      a: "Yes, we provide pure filtered chilled drinking water for all active teams at no cost.",
+      q: "Are bibs and match balls provided?",
+      a: "Yes, clean match bibs (aprons) and official match footballs are provided with every booked slot.",
     },
     {
       q: "What footwear is allowed on the turf?",
@@ -339,8 +339,8 @@ const LandingPage = () => {
                 <MapPin size={20} />
               </div>
               <div className="strip-text">
-                <span className="strip-title">Noakhali,</span>
-                <span className="strip-sub">Sonaimuri / Companigonj</span>
+                <span className="strip-title">বেগমগঞ্জ, নোয়াখালী</span>
+                <span className="strip-sub">চৌরাস্তা-মাইজদী সড়ক</span>
               </div>
             </div>
 
@@ -363,7 +363,7 @@ const LandingPage = () => {
                 <Users size={20} />
               </div>
               <div className="strip-text">
-                <span className="strip-title">6-7 Players</span>
+                <span className="strip-title">9-A Side</span>
                 <span className="strip-sub">(Per Team)</span>
               </div>
             </div>
@@ -510,7 +510,7 @@ const LandingPage = () => {
                     </li>
                     <li>
                       <CheckCircle2 size={15} className="perk-icon" />
-                      <span>Pure Filtered Drinking Water</span>
+                      <span>Dugout & Changing Facilities</span>
                     </li>
                   </ul>
 
@@ -761,7 +761,9 @@ const LandingPage = () => {
                 <div className="contact-card-content">
                   <span className="contact-card-label">Arena Location</span>
                   <span className="contact-card-val">The Turf Noakhali</span>
-                  <span className="contact-card-sub">Companigonj, Noakhali, Bangladesh</span>
+                  <span className="contact-card-sub">
+                    জয়নাল আবেদীন স্কুল এবং গ্লোব ফ্যাক্টরির মধ্যবর্তী স্থানে অবস্থিত। রাস্তার পশ্চিম পাশ, চৌরাস্তা-মাইজদী সড়ক, বেগমগঞ্জ, নোয়াখালী
+                  </span>
                 </div>
               </div>
 
@@ -791,7 +793,7 @@ const LandingPage = () => {
             {/* Right Column: Interactive Map */}
             <div className="contact-map-col">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.023344707103!2d90.96260507438787!3d23.639334993033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37546900120d1447%3A0x129756cfae422568!2sCompanigonj%20Turf%20Zone!5e0!3m2!1sen!2sbd!4v1789580638671!5m2!1sen!2sbd"
+                src="https://maps.google.com/maps?q=Chowrasta-Maijdee+Road,+Begumganj,+Noakhali&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 className="contact-map-iframe"

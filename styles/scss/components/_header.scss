@@ -56,7 +56,7 @@
             .brand-title {
                 font-size: rem(18px);
                 font-weight: 900;
-                color: #0b3b24; /* Dark green from logo */
+                color: #000000;
                 letter-spacing: 0.5px;
                 text-transform: uppercase;
             }
@@ -64,7 +64,7 @@
             .brand-subtitle {
                 font-size: rem(11px);
                 font-weight: 700;
-                color: #15803d; /* Turf green */
+                color: #52525b;
                 letter-spacing: 2.2px;
                 text-transform: uppercase;
             }
@@ -83,7 +83,7 @@
         .header__nav-item {
             font-size: rem(13px);
             font-weight: 700;
-            color: #1e293b;
+            color: #18181b;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             padding: rem(6px) rem(8px);
@@ -91,7 +91,7 @@
             text-decoration: none;
 
             &:hover {
-                color: #0b3b24;
+                color: #000000;
             }
         }
     }
@@ -102,21 +102,26 @@
         gap: rem(6px);
         padding: rem(7px) rem(14px);
         border-radius: rem(999px);
-        background: #f1f5f9;
-        border: 1px solid #e2e8f0;
-        color: #0b3b24;
+        background: #f4f4f5;
+        border: 1px solid #e4e4e7;
+        color: #000000;
         font-size: rem(12px);
         font-weight: 700;
         text-decoration: none;
         transition: all 0.2s ease;
 
         .hotline-icon {
-            color: #15803d;
+            color: #18181b;
         }
 
         &:hover {
-            background: rgba(11, 59, 36, 0.08);
-            border-color: #0b3b24;
+            background: #000000;
+            border-color: #000000;
+            color: #ffffff;
+
+            .hotline-icon {
+                color: #ffffff;
+            }
         }
     }
 
@@ -127,16 +132,17 @@
         gap: rem(6px);
         padding: rem(7px) rem(14px);
         border-radius: rem(999px);
-        background: rgba(11, 59, 36, 0.06);
-        border: 1px solid rgba(11, 59, 36, 0.2);
-        color: #0b3b24;
+        background: #f4f4f5;
+        border: 1px solid #e4e4e7;
+        color: #000000;
         font-size: rem(12px);
         font-weight: 700;
         text-decoration: none;
         transition: all 0.2s ease;
 
         &:hover {
-            background: #0b3b24;
+            background: #000000;
+            border-color: #000000;
             color: #ffffff;
         }
     }
@@ -148,8 +154,8 @@
         justify-content: center !important;
         gap: rem(7px) !important;
         padding: rem(9px) rem(20px) !important;
-        background: linear-gradient(135deg, #0b3b24 0%, #15803d 100%) !important;
-        border: 1px solid #0b3b24 !important;
+        background: #000000 !important;
+        border: 1px solid #000000 !important;
         color: #ffffff !important;
         border-radius: rem(999px) !important;
         font-size: rem(12.5px) !important;
@@ -157,7 +163,7 @@
         text-transform: uppercase;
         letter-spacing: 0.5px;
         text-decoration: none;
-        box-shadow: 0 4px 14px rgba(11, 59, 36, 0.25);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
         transition: all 0.25s ease;
 
         svg {
@@ -166,10 +172,10 @@
         }
 
         &:hover {
-            background: linear-gradient(135deg, #15803d 0%, #16a34a 100%) !important;
-            border-color: #15803d !important;
+            background: #27272a !important;
+            border-color: #27272a !important;
             color: #ffffff !important;
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
             transform: translateY(-1px);
             cursor: pointer;
 
@@ -265,8 +271,8 @@
             transition: all 0.2s ease;
 
             &:hover {
-                background: rgba(11, 59, 36, 0.08);
-                color: #0b3b24;
+                background: #f4f4f5;
+                color: #000000;
                 padding-left: rem(18px);
             }
         }
@@ -286,9 +292,9 @@
             gap: rem(8px);
             padding: rem(12px);
             border-radius: rem(10px);
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            color: #0b3b24;
+            background: #f4f4f5;
+            border: 1px solid #e4e4e7;
+            color: #000000;
             font-size: rem(13px);
             font-weight: 700;
             text-decoration: none;
@@ -301,9 +307,9 @@
             gap: rem(8px);
             padding: rem(12px);
             border-radius: rem(10px);
-            background: rgba(11, 59, 36, 0.06);
-            border: 1px solid rgba(11, 59, 36, 0.2);
-            color: #0b3b24;
+            background: #f4f4f5;
+            border: 1px solid #e4e4e7;
+            color: #000000;
             font-size: rem(13px);
             font-weight: 700;
             text-decoration: none;
@@ -316,8 +322,8 @@
             gap: rem(8px) !important;
             width: 100% !important;
             padding: rem(12px) rem(20px) !important;
-            background: linear-gradient(135deg, #0b3b24 0%, #15803d 100%) !important;
-            border: 1px solid #0b3b24 !important;
+            background: #000000 !important;
+            border: 1px solid #000000 !important;
             color: #ffffff !important;
             border-radius: rem(12px) !important;
             font-size: rem(13px) !important;
@@ -325,7 +331,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             text-decoration: none;
-            box-shadow: 0 4px 14px rgba(11, 59, 36, 0.25);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
             transition: all 0.25s ease;
 
             svg {
@@ -334,7 +340,8 @@
             }
 
             &:hover {
-                background: linear-gradient(135deg, #15803d 0%, #16a34a 100%) !important;
+                background: #27272a !important;
+                border-color: #27272a !important;
                 color: #ffffff !important;
                 transform: translateY(-1px);
             }

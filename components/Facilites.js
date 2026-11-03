@@ -14,7 +14,7 @@ const Facilites = () => {
                             <div className='our-facilities__list-wrap'>
                                 <ul className='our-facilities__list'>
                                     <li className='our-facilities__list-item our-facilities__list-item--green'>First Aid</li>
-                                    <li className='our-facilities__list-item our-facilities__list-item--green'>Cold water</li>
+                                    <li className='our-facilities__list-item our-facilities__list-item--green'>Dugout & Seating</li>
                                     <li className='our-facilities__list-item our-facilities__list-item--green'>Video recording (3 goals per slot)</li>
                                     <li className='our-facilities__list-item our-facilities__list-item--green'>Goalkeeping gloves</li>
                                     <li className='our-facilities__list-item our-facilities__list-item--green'>Apron & Bibs</li>

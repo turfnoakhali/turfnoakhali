@@ -541,7 +541,7 @@ export default function SlotBookingView() {
           }</p>
           <p style="margin-top: 12px; border-top: 1px solid #e2e8f0; padding-top: 10px;">
             <strong>এখন প্রদীয় পরিমাণ:</strong> 
-            <span style="color: #10b981; font-size: 1.25rem; font-weight: bold;">
+            <span style="color: #000000; font-size: 1.25rem; font-weight: bold;">
               ৳${
                 formData.paymentType === "cod"
                   ? Number(formData.cashAmount || 0).toLocaleString()
@@ -555,7 +555,7 @@ export default function SlotBookingView() {
       showCancelButton: true,
       confirmButtonText: "হ্যাঁ, বুকিং কনফার্ম করুন",
       cancelButtonText: "বাতিল",
-      confirmButtonColor: "#0b3b24",
+      confirmButtonColor: "#000000",
       cancelButtonColor: "#64748b",
     });
 
@@ -997,7 +997,7 @@ export default function SlotBookingView() {
                   <Users size={14} className="row-icon" />
                   <span>Players (খেলোয়াড়)</span>
                 </span>
-                <span className="row-value">6-7 Players / Side</span>
+                <span className="row-value">9-A Side</span>
               </div>
 
               {/* Slot Rate */}
@@ -1157,8 +1157,8 @@ export default function SlotBookingView() {
             <Users size={22} />
           </div>
           <div>
-            <h4>6-7 Players / Side</h4>
-            <p>Ideal for 6v6 or 7v7 competitive matches.</p>
+            <h4>9-A-Side Pitch</h4>
+            <p>Ideal for 9-a-side competitive matches.</p>
           </div>
         </div>
 
