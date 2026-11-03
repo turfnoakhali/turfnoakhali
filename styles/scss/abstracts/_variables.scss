@@ -28,52 +28,52 @@ $fw-semi-bold: 600;
 $fw-semi-medium: 500;
 $fw-light: 300;
 
-/// Brand colors for The Turf Noakhali (from official logo)
-$color-primary: #0b3b24; // Deep Dark Green from logo
-$color-primary-dark: #062a19; // Dark Forest Green
-$color-primary-light: #15803d; // Pitch Turf Green
-$color-primary-accent: #16a34a; // Bright Turf Green Accent
-$color-gold: #d4af37; // Metallic Gold
-$color-gold-light: #f3ce65; // Bright Gold Accent
-$color-gold-dark: #b8860b; // Deep Burnished Gold
+/// Brand colors for The Turf Noakhali (Black & White Modern Theme)
+$color-primary: #000000; // Pure Black
+$color-primary-dark: #09090b; // Deep Charcoal Black
+$color-primary-light: #18181b; // Sleek Dark Slate
+$color-primary-accent: #27272a; // Dark Gray Accent
+$color-gold: #ffffff; 
+$color-gold-light: #f4f4f5; 
+$color-gold-dark: #71717a; 
 
 /// Font colors for the website
 /// @type Color
-$fc-primary--dark: #0b3b24; // Headings: Dark Green
-$fc-heading--dark: #0f172a; // Headings Dark Slate
-$fc-primary--gray: #64748b; // Descriptions: Gray
-$fc-body--gray: #4b5563; // P tags: Slate Gray
+$fc-primary--dark: #000000; // Headings: Pure Black
+$fc-heading--dark: #000000; // Headings Dark Slate
+$fc-primary--gray: #71717a; // Descriptions: Gray
+$fc-body--gray: #52525b; // P tags: Slate Gray
 $fc-primary--white: #ffffff;
-$fc-secondary--dark: #1e293b;
-$fc-card--red: #0b3b24;
+$fc-secondary--dark: #18181b;
+$fc-card--red: #000000;
 $fc-brand-primary: $color-primary;
-$fc-brand-green: $color-primary-light;
+$fc-brand-green: #000000;
 $fc-brand-gold: $color-gold;
 
 // Background colors
 $bgc-primary--white: #ffffff; // Clean White
 $bgc-secondary--white: #f8fafc; // Light Gray Section
-$bgc-tertiary--white: #f1f5f9; // Slate Tint
+$bgc-tertiary--white: #f4f4f5; // Slate Tint
 $bgc-card: #ffffff;
-$bgc-primary--dark: #0b3b24;
-$bgc-secondary--dark: #062a19;
-$bgc-nav-open: #062a19;
+$bgc-primary--dark: #09090b;
+$bgc-secondary--dark: #000000;
+$bgc-nav-open: #000000;
 $bgc-code: rgb(245, 245, 245);
-$bgc-gray: #f3f4f6;
-$bgc-blog: #f9fafb;
-$bgc-primary-button: #0b3b24;
-$bgc-primary-button--hover: #15803d;
-$bgc-secondary-button--dark: #0b3b24;
-$bgc-secondary-button--light: #15803d;
+$bgc-gray: #f4f4f5;
+$bgc-blog: #fafafa;
+$bgc-primary-button: #000000;
+$bgc-primary-button--hover: #27272a;
+$bgc-secondary-button--dark: #000000;
+$bgc-secondary-button--light: #27272a;
 $bgc-header: #ffffff;
-$bgc-footer: #062a19;
+$bgc-footer: #ffffff;
 
 // Border colors
 $brc-primary--black: #000000;
 $brc-primary--white: #ffffff;
-$brc-primary--gold: #d4af37;
-$brc-primary--green: #15803d;
-$brc-primary--gray: #e2e8f0;
+$brc-primary--gold: #27272a;
+$brc-primary--green: #27272a;
+$brc-primary--gray: #e4e4e7;
 
 /// Container's maximum width
 /// @type Length

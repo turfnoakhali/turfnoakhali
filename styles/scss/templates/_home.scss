@@ -1,5 +1,5 @@
 /* ==========================================================================
-   AMISHAPARA STYLE - THE TURF NOAKHALI (WHITE & DARK GREEN THEME)
+   AMISHAPARA STYLE - THE TURF NOAKHALI (BLACK & WHITE THEME)
    ========================================================================== */
 
 .landing-amishapara-root {
@@ -11,9 +11,9 @@
 /* Common Section Typography & Badges */
 .section-badge-green {
   display: inline-block;
-  background: rgba(11, 59, 36, 0.08);
-  border: 1px solid rgba(11, 59, 36, 0.2);
-  color: #0b3b24; /* Dark green from logo */
+  background: #f4f4f5;
+  border: 1px solid #e4e4e7;
+  color: #000000;
   font-size: rem(11px);
   font-weight: 800;
   letter-spacing: 1.5px;
@@ -26,7 +26,7 @@
 .section-title-dark {
   font-size: rem(28px);
   font-weight: 900;
-  color: #0b3b24; /* Dark Green from logo */
+  color: #000000;
   letter-spacing: -0.5px;
   line-height: 1.2;
   text-transform: uppercase;
@@ -62,7 +62,7 @@
     align-items: center;
     background: #f1f5f9;
     border: 1px solid #e2e8f0;
-    color: #0b3b24;
+    color: #000000;
     font-size: rem(12px);
     font-weight: 600;
     padding: rem(6px) rem(16px);
@@ -75,7 +75,7 @@
    ========================================================================== */
 .hero-amishapara {
   position: relative;
-  background: #0b3b24; /* Dark Green from logo */
+  background: #09090b;
   padding: rem(60px) 0 rem(90px);
   color: #ffffff;
   overflow: hidden;
@@ -103,9 +103,9 @@
       inset: 0;
       background: linear-gradient(
         90deg,
-        rgba(6, 42, 25, 0.8) 0%,
-        rgba(11, 59, 36, 0.5) 45%,
-        rgba(6, 42, 25, 0.25) 100%
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(10, 10, 10, 0.6) 45%,
+        rgba(0, 0, 0, 0.35) 100%
       );
     }
   }
@@ -153,8 +153,8 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 8px #22c55e;
+      background: #ffffff;
+      box-shadow: 0 0 8px #ffffff;
     }
   }
 
@@ -180,7 +180,7 @@
       }
 
       &.headline-highlight {
-        color: #22c55e; /* Vibrant turf green */
+        color: #ffffff;
       }
 
       &.headline-sub {
@@ -218,14 +218,14 @@
     gap: rem(14px);
 
     .hero-btn-main {
-      background: #22c55e;
-      color: #062a19 !important;
+      background: #ffffff;
+      color: #000000 !important;
       font-weight: 800;
-      border-color: #22c55e;
-      box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
+      border-color: #ffffff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 
       &:hover {
-        background: #16a34a;
+        background: #000000;
         color: #ffffff !important;
       }
     }
@@ -257,7 +257,7 @@
         width: 180px;
         height: 180px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(34, 197, 94, 0.25) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
         filter: blur(40px);
         pointer-events: none;
       }
@@ -280,7 +280,7 @@
         .emblem-tag {
           font-size: rem(12px);
           font-weight: 800;
-          color: #22c55e;
+          color: #ffffff;
           letter-spacing: 1.5px;
           text-transform: uppercase;
         }
@@ -323,7 +323,7 @@
         text-decoration: none;
 
         &:hover .strip-title {
-          color: #15803d;
+          color: #000000;
         }
       }
     }
@@ -332,8 +332,8 @@
       width: 44px;
       height: 44px;
       border-radius: rem(12px);
-      background: rgba(11, 59, 36, 0.08);
-      color: #0b3b24; /* Dark green */
+      background: #f4f4f5;
+      color: #000000;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -347,7 +347,7 @@
       .strip-title {
         font-size: rem(15px);
         font-weight: 800;
-        color: #0b3b24; /* Dark green */
+        color: #000000;
         transition: color 0.2s ease;
       }
 
@@ -411,7 +411,7 @@
       .media-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(180deg, transparent 40%, rgba(11, 59, 36, 0.9) 100%);
+        background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.9) 100%);
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -421,7 +421,7 @@
         .media-tag {
           font-size: rem(11px);
           font-weight: 800;
-          color: #22c55e;
+          color: #ffffff;
           letter-spacing: 1.5px;
           text-transform: uppercase;
           margin-bottom: rem(4px);
@@ -485,17 +485,17 @@
     transition: all 0.3s ease;
 
     &:hover {
-      border-color: #0b3b24;
+      border-color: #000000;
       transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(11, 59, 36, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
     .why-icon-box {
       width: 52px;
       height: 52px;
       border-radius: rem(14px);
-      background: rgba(11, 59, 36, 0.08);
-      color: #0b3b24; /* Dark green */
+      background: #f4f4f5;
+      color: #000000;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -505,7 +505,7 @@
     .why-title {
       font-size: rem(18px);
       font-weight: 800;
-      color: #0b3b24; /* Dark green */
+      color: #000000;
       margin-bottom: rem(10px);
     }
 
@@ -552,7 +552,7 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 
     &:hover {
-      border-color: #0b3b24;
+      border-color: #000000;
       transform: translateY(-3px);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     }
@@ -561,8 +561,8 @@
       width: 44px;
       height: 44px;
       border-radius: rem(12px);
-      background: rgba(11, 59, 36, 0.08);
-      color: #0b3b24; /* Dark green */
+      background: #f4f4f5;
+      color: #000000;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -571,7 +571,7 @@
     .amenity-title {
       font-size: rem(16px);
       font-weight: 800;
-      color: #0b3b24; /* Dark green */
+      color: #000000;
       margin-bottom: rem(4px);
     }
 
@@ -636,7 +636,7 @@
         position: absolute;
         top: 14px;
         right: 14px;
-        background: rgba(11, 59, 36, 0.9);
+        background: rgba(0, 0, 0, 0.9);
         color: #ffffff;
         font-size: rem(11px);
         font-weight: 700;
@@ -651,7 +651,7 @@
       .card-match-title {
         font-size: rem(16px);
         font-weight: 800;
-        color: #0b3b24; /* Dark green */
+        color: #000000;
         margin-bottom: rem(4px);
       }
 
@@ -724,13 +724,13 @@
       .reviewer-name {
         font-size: rem(15px);
         font-weight: 800;
-        color: #0b3b24; /* Dark green */
+        color: #000000;
       }
 
       .reviewer-role {
         font-size: rem(11px);
         font-weight: 700;
-        color: #15803d; /* Turf green */
+        color: #52525b;
         letter-spacing: 0.8px;
         text-transform: uppercase;
       }
@@ -763,13 +763,13 @@
     transition: all 0.2s ease;
 
     &:hover {
-      border-color: #0b3b24;
+      border-color: #000000;
       background: #fdfdfd;
     }
 
     &--open {
-      border-color: #0b3b24;
-      box-shadow: 0 4px 15px rgba(11, 59, 36, 0.08);
+      border-color: #000000;
+      box-shadow: 0 4px 15px #f4f4f5;
     }
 
     .faq-card-question {
@@ -781,12 +781,12 @@
       .faq-q-text {
         font-size: rem(15px);
         font-weight: 800;
-        color: #0b3b24; /* Dark green */
+        color: #000000;
         line-height: 1.4;
       }
 
       .faq-arrow {
-        color: #0b3b24;
+        color: #000000;
         flex-shrink: 0;
       }
     }
@@ -806,11 +806,11 @@
 }
 
 /* ==========================================================================
-   9. CALL TO ACTION (CTA) SECTION (Dark Green Background)
+   9. CALL TO ACTION (CTA) SECTION (Dark Background)
    ========================================================================== */
 .section-cta-amishapara {
   padding: rem(80px) 0;
-  background-color: #0b3b24; /* Dark green from logo */
+  background-color: #000000;
   color: #ffffff;
 
   .cta-box {
@@ -825,7 +825,7 @@
       display: inline-block;
       background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #22c55e;
+      color: #ffffff;
       font-size: rem(11px);
       font-weight: 800;
       letter-spacing: 1.5px;
@@ -910,22 +910,22 @@
 
   &:hover {
     transform: translateY(-4px);
-    border-color: #0b3b24;
-    box-shadow: 0 14px 34px rgba(11, 59, 36, 0.12);
+    border-color: #000000;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
   }
 
   &.is-popular-card {
-    border: 2px solid #0b3b24;
-    box-shadow: 0 8px 28px rgba(11, 59, 36, 0.14);
+    border: 2px solid #000000;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
     background: #ffffff;
 
     .shift-book-btn {
-      background: #0b3b24;
+      background: #000000;
       color: #ffffff !important;
 
       &:hover {
-        background: #062a19;
-        box-shadow: 0 6px 18px rgba(11, 59, 36, 0.3);
+        background: #27272a;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
       }
     }
   }
@@ -935,7 +935,7 @@
     top: rem(-13px);
     left: 50%;
     transform: translateX(-50%);
-    background: #0b3b24;
+    background: #000000;
     color: #ffffff;
     font-size: rem(10px);
     font-weight: 800;
@@ -943,7 +943,7 @@
     padding: rem(4px) rem(12px);
     border-radius: rem(999px);
     white-space: nowrap;
-    box-shadow: 0 4px 12px rgba(11, 59, 36, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   }
 
   .shift-card-header {
@@ -956,8 +956,8 @@
       width: rem(42px);
       height: rem(42px);
       border-radius: rem(12px);
-      background: rgba(11, 59, 36, 0.08);
-      color: #0b3b24;
+      background: #f4f4f5;
+      color: #000000;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -967,7 +967,7 @@
     .shift-name {
       font-size: rem(17px);
       font-weight: 900;
-      color: #0b3b24;
+      color: #000000;
       line-height: 1.2;
       text-transform: uppercase;
       margin: 0;
@@ -1003,7 +1003,7 @@
     .discount-price {
       font-size: rem(30px);
       font-weight: 900;
-      color: #0b3b24;
+      color: #000000;
       line-height: 1;
     }
 
@@ -1034,7 +1034,7 @@
 
     .save-badge {
       background: #dcfce7;
-      color: #15803d;
+      color: #000000;
       font-size: rem(10px);
       font-weight: 800;
       padding: rem(2px) rem(8px);
@@ -1069,7 +1069,7 @@
       font-weight: 600;
 
       .perk-icon {
-        color: #16a34a;
+        color: #000000;
         flex-shrink: 0;
       }
     }
@@ -1079,7 +1079,7 @@
     width: 100%;
     padding: rem(11px) rem(16px);
     background: #f1f5f9;
-    color: #0b3b24 !important;
+    color: #000000 !important;
     border: 1.5px solid #e2e8f0;
     border-radius: rem(10px);
     font-size: rem(13px);
@@ -1096,11 +1096,11 @@
     cursor: pointer;
 
     &:hover {
-      background: #0b3b24;
-      border-color: #0b3b24;
+      background: #000000;
+      border-color: #000000;
       color: #ffffff !important;
       transform: translateY(-2px);
-      box-shadow: 0 4px 14px rgba(11, 59, 36, 0.2);
+      box-shadow: 0 4px 14px #e4e4e7;
     }
   }
 }
@@ -1130,12 +1130,12 @@
     color: #4b5563;
 
     .guarantee-icon {
-      color: #0b3b24;
+      color: #000000;
       flex-shrink: 0;
     }
 
     strong {
-      color: #0b3b24;
+      color: #000000;
     }
   }
 }
@@ -1191,12 +1191,12 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 
     &:hover {
-      border-color: #15803d;
+      border-color: #000000;
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(11, 59, 36, 0.08);
+      box-shadow: 0 8px 24px #f4f4f5;
 
       .contact-card-icon {
-        background: #0b3b24;
+        background: #000000;
         color: #ffffff;
       }
     }
@@ -1205,8 +1205,8 @@
       width: 46px;
       height: 46px;
       border-radius: rem(12px);
-      background: #ecfdf5;
-      color: #0b3b24;
+      background: #f4f4f5;
+      color: #000000;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1223,7 +1223,7 @@
         font-size: rem(11px);
         font-weight: 700;
         text-transform: uppercase;
-        color: #15803d;
+        color: #000000;
         letter-spacing: 0.5px;
         margin-bottom: rem(2px);
       }
@@ -1276,7 +1276,7 @@
 }
 
 .hero-amishapara .hero-headline .headline-block .headline-highlight {
-  color: #22c55e;
+  color: #ffffff;
 }
 
 .hero-amishapara .hero-subtitles {
@@ -1308,8 +1308,8 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
+      background: #ffffff;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
       flex-shrink: 0;
     }
   }

@@ -10,7 +10,7 @@
 
   .our-facilities__column {
     background: #082216;
-    border: 1px solid rgba(16, 185, 129, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: rem(20px);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     padding: rem(36px);
@@ -32,8 +32,8 @@
     margin-bottom: rem(12px);
 
     &--green::before {
-      background: #10b981;
-      box-shadow: 0 0 8px #10b981;
+      background: #000000;
+      box-shadow: 0 0 8px #000000;
     }
   }
 

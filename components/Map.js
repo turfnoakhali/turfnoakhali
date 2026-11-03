@@ -19,7 +19,7 @@ const Map = () => {
                             title="The Turf Noakhali Location"
                         ></iframe>
                         <h3 className='map-turf-name' style={{ color: '#ffffff', fontSize: '24px', fontWeight: '800', marginTop: '16px' }}>The Turf Noakhali</h3>
-                        <p className='map-turf-text' style={{ color: '#10b981', fontSize: '15px' }}>জয়নাল আবেদীন স্কুল ও গ্লোব ফ্যাক্টরির মধ্যবর্তী, চৌরাস্তা-মাইজদী সড়ক, বেগমগঞ্জ, নোয়াখালী • Open 24/7</p>
+                        <p className='map-turf-text' style={{ color: '#e4e4e7', fontSize: '15px' }}>জয়নাল আবেদীন স্কুল ও গ্লোব ফ্যাক্টরির মধ্যবর্তী, চৌরাস্তা-মাইজদী সড়ক, বেগমগঞ্জ, নোয়াখালী • Open 24/7</p>
                     </div>
                 </div>
             </div>
