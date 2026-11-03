@@ -997,7 +997,7 @@ export default function SlotBookingView() {
                   <Users size={14} className="row-icon" />
                   <span>Players (খেলোয়াড়)</span>
                 </span>
-                <span className="row-value">6-7 Players / Side</span>
+                <span className="row-value">9-A Side</span>
               </div>
 
               {/* Slot Rate */}
@@ -1157,8 +1157,8 @@ export default function SlotBookingView() {
             <Users size={22} />
           </div>
           <div>
-            <h4>6-7 Players / Side</h4>
-            <p>Ideal for 6v6 or 7v7 competitive matches.</p>
+            <h4>9-A-Side Pitch</h4>
+            <p>Ideal for 9-a-side competitive matches.</p>
           </div>
         </div>
 

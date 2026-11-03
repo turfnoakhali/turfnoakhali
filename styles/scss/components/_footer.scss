@@ -152,6 +152,19 @@
             line-height: 1.4;
             color: #e2e8f0;
 
+            &.contact-item--multiline {
+                align-items: flex-start;
+
+                .contact-icon {
+                    margin-top: rem(3px);
+                }
+
+                span, a {
+                    display: block;
+                    line-height: 1.5;
+                }
+            }
+
             .contact-icon {
                 color: #22c55e;
                 flex-shrink: 0;
