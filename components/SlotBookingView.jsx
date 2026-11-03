@@ -803,8 +803,8 @@ export default function SlotBookingView() {
             {/* Slots Grid */}
             <div className="slots-cards-grid">
               {loadingSlots ? (
-                // Pulse Shimmer Loading Placeholders
-                Array.from({ length: 8 }).map((_, idx) => (
+                // Pulse Shimmer Loading Placeholders (9 items for 3 cols)
+                Array.from({ length: 9 }).map((_, idx) => (
                   <div key={idx} className="slot-shimmer-card">
                     <div className="shimmer-top">
                       <div className="shimmer-pill"></div>
@@ -876,7 +876,7 @@ export default function SlotBookingView() {
                           ? "state-booked"
                           : isHolding
                           ? "state-holding"
-                          : "state-past"
+                          : "state-passed state-past"
                       }`}
                     >
                       {/* Top Row: Shift Pill & Status / Checkmark */}
