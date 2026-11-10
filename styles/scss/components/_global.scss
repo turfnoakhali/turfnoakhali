@@ -404,3 +404,9 @@
         .sweet-alert-content {
           font-size: rem(20px);
         }
+
+
+
+div:where(.swal2-container) {
+  z-index: 99999;
+}
