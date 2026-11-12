@@ -152,7 +152,7 @@ export async function POST(request) {
       );
     }
 
-    const MIN_ADVANCE = role === "USER" ? 500 : 0;
+    const MIN_ADVANCE = role === "USER" ? 1 : 0;
 
     if (paymentType === "advance") {
       if (totalAmount < MIN_ADVANCE) {

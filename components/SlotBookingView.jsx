@@ -39,7 +39,7 @@ import {
 } from "@/lib/pricing";
 
 const ARENA_NAME = "Turf Noakhali";
-const MIN_ADVANCE = 500;
+const MIN_ADVANCE = 1;
 
 export default function SlotBookingView() {
   const router = useRouter();
@@ -1187,8 +1187,8 @@ export default function SlotBookingView() {
             <ShieldCheck size={22} />
           </div>
           <div>
-            <h4>৳500 Advance Lock</h4>
-            <p>Lock your slot with only ৳500 advance via bKash.</p>
+            <h4>৳1 Advance Lock</h4>
+            <p>Lock your slot with only ৳1 advance via bKash.</p>
           </div>
         </div>
       </div>
@@ -1430,10 +1430,10 @@ export default function SlotBookingView() {
                           />
                           <div className="choice-info">
                             <span className="choice-name">
-                              Pay ৳500 Advance via bKash
+                              Pay ৳1 Advance via bKash
                             </span>
                             <span className="choice-desc">
-                              বিকাশে সর্বনিম্ন ৳৫০০ অগ্রিম জমা দিয়ে তাৎক্ষণিক স্লট কনফার্ম করুন
+                              বিকাশে সর্বনিম্ন ৳১ অগ্রিম জমা দিয়ে তাৎক্ষণিক স্লট কনফার্ম করুন
                             </span>
                           </div>
                           <Image
