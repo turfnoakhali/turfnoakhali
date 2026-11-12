@@ -249,7 +249,7 @@ const LandingPage = () => {
   const faqs = [
     {
       q: "How do I secure my reservation?",
-      a: "Select your preferred slot from our Live Schedule, provide your team details, and pay a 500 BDT advance via bKash/Nagad. You will receive an instant confirmation.",
+      a: "Select your preferred slot from our Live Schedule, provide your team details, and pay a 1 BDT advance via bKash/Nagad. You will receive an instant confirmation.",
     },
     {
       q: "Can I cancel or reschedule my match?",
@@ -433,7 +433,7 @@ const LandingPage = () => {
               Real-time booking matrix. Select any available slot to initiate instant reservation.
             </p>
             <div className="notice-chip">
-              <span>⚡ Instant confirmation • 100% Refund guarantee on 24h prior cancellations • BDT 500 Advance</span>
+              <span>⚡ Instant confirmation • 100% Refund guarantee on 24h prior cancellations • BDT 1 Advance</span>
             </div>
           </div>
 
@@ -453,7 +453,7 @@ const LandingPage = () => {
             <div className="section-badge-green">OFFICIAL 5-SHIFT PRICING MATRIX</div>
             <h2 className="section-title-dark">Simple, Transparent Shift Pricing</h2>
             <p className="section-desc-gray">
-              Standard full pitch match slots with special discounted rates for online reservations. Book any shift with minimum ৳500 advance.
+              Standard full pitch match slots with special discounted rates for online reservations. Book any shift with minimum ৳1 advance.
             </p>
           </div>
 
@@ -526,7 +526,7 @@ const LandingPage = () => {
           <div className="pricing-guarantee-strip">
             <div className="guarantee-item">
               <ShieldCheck size={18} className="guarantee-icon" />
-              <span><strong>Instant Slot Lock:</strong> ৳500 minimum bKash advance secures your match reservation.</span>
+              <span><strong>Instant Slot Lock:</strong> ৳1 minimum bKash advance secures your match reservation.</span>
             </div>
             <div className="guarantee-item">
               <CheckCircle2 size={18} className="guarantee-icon" />
