@@ -18,18 +18,27 @@
    * 3. Leave some space on the edges, especially valuable on small screens
    */
 .container {
-  max-width: $max-width;
+  width: 100%;
+  max-width: 1360px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
-  width: 100%;
-  @include mq('375px') {
-    padding-left: 30px;
-    padding-right: 30px;
+  padding-left: rem(16px);
+  padding-right: rem(16px);
+
+  @include mq(small) {
+    padding-left: rem(24px);
+    padding-right: rem(24px);
   }
-  @include mq('600px') {
-    width: 95%;
+
+  @include mq(large) {
+    padding-left: rem(32px);
+    padding-right: rem(32px);
+  }
+
+  @media (min-width: 1536px) {
+    max-width: 1440px;
+    padding-left: rem(40px);
+    padding-right: rem(40px);
   }
 }
 

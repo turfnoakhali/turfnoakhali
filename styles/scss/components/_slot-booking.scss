@@ -507,7 +507,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Slots Cards Grid (3 cards per row on desktop/tablet, fully responsive)
+   Slots Cards Grid (Responsive 2/3 cards per row, perfectly balanced)
    -------------------------------------------------------------------------- */
 .slots-cards-grid {
   display: grid;
@@ -525,6 +525,11 @@
   }
 
   @include mq(large) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(12px);
+  }
+
+  @media (min-width: 1240px) {
     grid-template-columns: repeat(3, 1fr);
     gap: rem(14px);
   }
@@ -944,21 +949,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: rem(8px);
+  gap: rem(4px);
   margin: rem(3px) 0;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .slot-card-date-badge {
   display: inline-flex;
   align-items: center;
-  gap: rem(4px);
-  padding: rem(3px) rem(7px);
-  border-radius: rem(7px);
+  gap: rem(3px);
+  padding: rem(2px) rem(6px);
+  border-radius: rem(6px);
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   color: #334155;
-  font-size: rem(10px);
+  font-size: rem(9.5px);
   font-weight: 700;
   white-space: nowrap;
   letter-spacing: -0.2px;
@@ -972,8 +978,8 @@
   }
 
   @include mq(small) {
-    font-size: rem(10.5px);
-    padding: rem(3.5px) rem(8px);
+    font-size: rem(10px);
+    padding: rem(2.5px) rem(6.5px);
   }
 }
 
@@ -1341,14 +1347,14 @@
 }
 
 /* --------------------------------------------------------------------------
-   Facilities Sidebar Card
+   Facilities Sidebar Card (Dark Theme with Vibrant Glowing Icons)
    -------------------------------------------------------------------------- */
 .facilities-sidebar-card {
-  background: #ffffff;
+  background: #09090b;
   border-radius: rem(20px);
   padding: rem(18px) rem(16px);
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid #27272a;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
   position: relative;
   overflow: hidden;
 
@@ -1374,8 +1380,8 @@
   gap: rem(8px);
   font-size: rem(14.5px);
   font-weight: 900;
-  color: #0f172a;
-  border-bottom: 1px solid #f1f5f9;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: rem(12px);
   margin: 0 0 rem(14px);
   letter-spacing: -0.3px;
@@ -1386,7 +1392,7 @@
     height: rem(8px);
     border-radius: 50%;
     background: #10b981;
-    box-shadow: 0 0 10px rgba(16, 185, 129, 0.7);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.9);
     display: inline-block;
     flex-shrink: 0;
   }
@@ -1415,7 +1421,7 @@
   transition: all 0.25s ease;
 
   &:hover {
-    background: #f8fafc;
+    background: rgba(255, 255, 255, 0.06);
     transform: translateX(3px);
 
     .facility-icon-wrap {
@@ -1445,10 +1451,10 @@
     .facility-icon-wrap {
       background: linear-gradient(135deg, #10b981, #059669);
       color: #ffffff;
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.32);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.45);
     }
     &:hover {
-      background: rgba(16, 185, 129, 0.06);
+      background: rgba(16, 185, 129, 0.12);
     }
   }
 
@@ -1456,10 +1462,10 @@
     .facility-icon-wrap {
       background: linear-gradient(135deg, #f59e0b, #d97706);
       color: #ffffff;
-      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.32);
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.45);
     }
     &:hover {
-      background: rgba(245, 158, 11, 0.06);
+      background: rgba(245, 158, 11, 0.12);
     }
   }
 
@@ -1467,10 +1473,10 @@
     .facility-icon-wrap {
       background: linear-gradient(135deg, #3b82f6, #1d4ed8);
       color: #ffffff;
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.32);
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.45);
     }
     &:hover {
-      background: rgba(59, 130, 246, 0.06);
+      background: rgba(59, 130, 246, 0.12);
     }
   }
 
@@ -1478,10 +1484,10 @@
     .facility-icon-wrap {
       background: linear-gradient(135deg, #8b5cf6, #6d28d9);
       color: #ffffff;
-      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.32);
+      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.45);
     }
     &:hover {
-      background: rgba(139, 92, 246, 0.06);
+      background: rgba(139, 92, 246, 0.12);
     }
   }
 
@@ -1489,10 +1495,10 @@
     .facility-icon-wrap {
       background: linear-gradient(135deg, #06b6d4, #0891b2);
       color: #ffffff;
-      box-shadow: 0 4px 12px rgba(6, 182, 212, 0.32);
+      box-shadow: 0 4px 14px rgba(6, 182, 212, 0.45);
     }
     &:hover {
-      background: rgba(6, 182, 212, 0.06);
+      background: rgba(6, 182, 212, 0.12);
     }
   }
 
@@ -1500,24 +1506,24 @@
     .facility-icon-wrap {
       background: linear-gradient(135deg, #f97316, #ea580c);
       color: #ffffff;
-      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.32);
+      box-shadow: 0 4px 14px rgba(249, 115, 22, 0.45);
     }
     &:hover {
-      background: rgba(249, 115, 22, 0.06);
+      background: rgba(249, 115, 22, 0.12);
     }
   }
 
   .facility-item-title {
     font-size: rem(12.5px);
     font-weight: 800;
-    color: #0f172a;
+    color: #ffffff;
     margin: 0;
     line-height: 1.25;
   }
 
   .facility-item-desc {
     font-size: rem(10.5px);
-    color: #64748b;
+    color: #94a3b8;
     font-weight: 500;
     margin: rem(1px) 0 0;
     line-height: 1.3;

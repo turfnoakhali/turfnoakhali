@@ -14,10 +14,14 @@ const Footer = () => {
                             <Image
                                 src="/images/the-turf-noakhali-logo.png"
                                 alt="The Turf Noakhali Logo"
-                                width={75}
-                                height={75}
+                                width={56}
+                                height={56}
                                 className="footer__logo"
                             />
+                            <div className="brand-text">
+                                <span className="brand-title-top">THE TURF</span>
+                                <span className="brand-title-bottom">NOAKHALI</span>
+                            </div>
                         </Link>
                         <p className="footer__description">
                             Where Champions Play. Premier FIFA-grade artificial football turf arena in Noakhali. Equipped with professional daylight LED floodlights, 9-A-side format, and instant online reservations.
