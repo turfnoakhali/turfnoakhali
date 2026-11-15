@@ -31,6 +31,9 @@
   @include mq('600px') {
     width: 95%;
   }
+  @include mq('1024px') {
+    width: 100%;
+  }
 }
 
 /**
