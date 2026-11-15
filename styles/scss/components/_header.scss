@@ -51,22 +51,66 @@
         .brand-text {
             display: flex;
             flex-direction: column;
-            line-height: 1.1;
+            justify-content: center;
+            line-height: 1.15;
+            user-select: none;
 
             .brand-title {
-                font-size: rem(18px);
+                font-size: rem(15.5px);
                 font-weight: 900;
-                color: #000000;
-                letter-spacing: 0.5px;
+                color: #0f172a;
+                letter-spacing: -0.3px;
                 text-transform: uppercase;
+                display: flex;
+                align-items: center;
+                gap: rem(4px);
+                white-space: nowrap;
+
+                @include mq(small) {
+                    font-size: rem(17px);
+                    letter-spacing: -0.2px;
+                }
+
+                @include mq(large) {
+                    font-size: rem(18px);
+                }
+
+                .brand-title-accent {
+                    color: #059669;
+                    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-weight: 900;
+                }
             }
 
             .brand-subtitle {
-                font-size: rem(11px);
-                font-weight: 700;
-                color: #52525b;
-                letter-spacing: 2.2px;
+                display: flex;
+                align-items: center;
+                gap: rem(5px);
+                font-size: rem(9.5px);
+                font-weight: 800;
+                color: #64748b;
+                letter-spacing: 1.2px;
                 text-transform: uppercase;
+                margin-top: rem(2px);
+                white-space: nowrap;
+
+                @include mq(small) {
+                    font-size: rem(10.5px);
+                    letter-spacing: 1.5px;
+                }
+
+                .brand-live-dot {
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background: #10b981;
+                    box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
+                    display: inline-block;
+                    flex-shrink: 0;
+                    animation: brandPulse 2s infinite ease-in-out;
+                }
             }
         }
     }
@@ -239,6 +283,53 @@
             align-items: center;
             gap: rem(10px);
             text-decoration: none;
+
+            .brand-text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                line-height: 1.15;
+
+                .brand-title {
+                    font-size: rem(14.5px);
+                    font-weight: 900;
+                    color: #0f172a;
+                    letter-spacing: -0.3px;
+                    text-transform: uppercase;
+                    display: flex;
+                    align-items: center;
+                    gap: rem(4px);
+
+                    .brand-title-accent {
+                        background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        font-weight: 900;
+                    }
+                }
+
+                .brand-subtitle {
+                    display: flex;
+                    align-items: center;
+                    gap: rem(5px);
+                    font-size: rem(9px);
+                    font-weight: 800;
+                    color: #64748b;
+                    letter-spacing: 1.2px;
+                    text-transform: uppercase;
+                    margin-top: rem(2px);
+
+                    .brand-live-dot {
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        background: #10b981;
+                        box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
+                        display: inline-block;
+                        flex-shrink: 0;
+                    }
+                }
+            }
         }
 
         .drawer-close-btn {
@@ -355,5 +446,16 @@
     }
     to {
         transform: translateX(0);
+    }
+}
+
+@keyframes brandPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.35);
+        opacity: 0.6;
     }
 }
