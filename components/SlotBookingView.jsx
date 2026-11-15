@@ -45,10 +45,18 @@ export default function SlotBookingView() {
   const router = useRouter();
   const { data: session } = useSession();
 
-  // Helper for today's YYYY-MM-DD
+  // Helper for formatting local date to YYYY-MM-DD avoiding UTC timezone offset bugs
+  const formatLocalDate = (dateObj) => {
+    if (!dateObj) return "";
+    const year = dateObj.getFullYear();
+    const month = String(dateObj.getMonth() + 1).padStart(2, "0");
+    const day = String(dateObj.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
+
+  // Helper for today's YYYY-MM-DD in local time
   const getTodayStr = () => {
-    const today = new Date();
-    return today.toISOString().split("T")[0];
+    return formatLocalDate(new Date());
   };
 
   const todayStr = getTodayStr();
@@ -211,11 +219,12 @@ export default function SlotBookingView() {
     for (let i = 0; i < 7; i++) {
       const d = new Date(base);
       d.setDate(base.getDate() + offset + i);
-      const ymd = d.toISOString().split("T")[0];
+      const ymd = formatLocalDate(d);
       const isToday = ymd === todayStr;
-      const isTomorrow =
-        ymd ===
-        new Date(base.getTime() + 86400000).toISOString().split("T")[0];
+
+      const tomorrow = new Date(base);
+      tomorrow.setDate(base.getDate() + 1);
+      const isTomorrow = ymd === formatLocalDate(tomorrow);
 
       const dayName = isToday
         ? "Today"
