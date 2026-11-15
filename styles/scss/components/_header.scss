@@ -52,64 +52,58 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            line-height: 1.15;
+            line-height: 1;
             user-select: none;
 
-            .brand-title {
-                font-size: rem(15.5px);
-                font-weight: 900;
-                color: #0f172a;
-                letter-spacing: -0.3px;
+            .brand-title-top {
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
+                font-size: rem(17px);
+                font-weight: 950;
+                color: #000000;
+                -webkit-text-stroke: 0.5px #000000;
+                letter-spacing: 0.8px;
                 text-transform: uppercase;
-                display: flex;
-                align-items: center;
-                gap: rem(4px);
+                display: block;
+                line-height: 1.05;
                 white-space: nowrap;
 
                 @include mq(small) {
-                    font-size: rem(17px);
-                    letter-spacing: -0.2px;
+                    font-size: rem(18.5px);
+                    letter-spacing: 1px;
                 }
 
                 @include mq(large) {
-                    font-size: rem(18px);
-                }
-
-                .brand-title-accent {
-                    color: #059669;
-                    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    font-weight: 900;
+                    font-size: rem(20px);
+                    letter-spacing: 1.2px;
+                    -webkit-text-stroke: 0.6px #000000;
                 }
             }
 
-            .brand-subtitle {
-                display: flex;
-                align-items: center;
-                gap: rem(5px);
-                font-size: rem(9.5px);
-                font-weight: 800;
-                color: #64748b;
-                letter-spacing: 1.2px;
+            .brand-title-bottom {
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
+                font-size: rem(12px);
+                font-weight: 950;
+                color: #059669;
+                background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                -webkit-text-stroke: 0.4px #059669;
+                letter-spacing: 2.8px;
                 text-transform: uppercase;
+                display: block;
+                line-height: 1.1;
                 margin-top: rem(2px);
                 white-space: nowrap;
 
                 @include mq(small) {
-                    font-size: rem(10.5px);
-                    letter-spacing: 1.5px;
+                    font-size: rem(13px);
+                    letter-spacing: 3.2px;
                 }
 
-                .brand-live-dot {
-                    width: 6px;
-                    height: 6px;
-                    border-radius: 50%;
-                    background: #10b981;
-                    box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
-                    display: inline-block;
-                    flex-shrink: 0;
-                    animation: brandPulse 2s infinite ease-in-out;
+                @include mq(large) {
+                    font-size: rem(14px);
+                    letter-spacing: 3.6px;
+                    -webkit-text-stroke: 0.5px #059669;
                 }
             }
         }
@@ -121,18 +115,40 @@
         @include mq(large) {
             display: flex;
             align-items: center;
+            gap: rem(8px);
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 1200px) {
+            gap: rem(12px);
+        }
+
+        @media (min-width: 1360px) {
             gap: rem(16px);
         }
 
         .header__nav-item {
-            font-size: rem(13px);
+            font-size: rem(11.5px);
             font-weight: 700;
             color: #18181b;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: rem(6px) rem(8px);
+            letter-spacing: 0.3px;
+            padding: rem(5px) rem(5px);
             transition: color 0.2s ease;
             text-decoration: none;
+            white-space: nowrap;
+
+            @media (min-width: 1200px) {
+                font-size: rem(12.5px);
+                padding: rem(6px) rem(7px);
+                letter-spacing: 0.4px;
+            }
+
+            @media (min-width: 1360px) {
+                font-size: rem(13px);
+                padding: rem(6px) rem(8px);
+                letter-spacing: 0.5px;
+            }
 
             &:hover {
                 color: #000000;
@@ -143,19 +159,28 @@
     .hotline-pill {
         display: inline-flex;
         align-items: center;
-        gap: rem(6px);
-        padding: rem(7px) rem(14px);
+        gap: rem(5px);
+        padding: rem(5px) rem(9px);
         border-radius: rem(999px);
         background: #f4f4f5;
         border: 1px solid #e4e4e7;
         color: #000000;
-        font-size: rem(12px);
+        font-size: rem(11px);
         font-weight: 700;
         text-decoration: none;
+        white-space: nowrap;
+        flex-shrink: 0;
         transition: all 0.2s ease;
+
+        @media (min-width: 1200px) {
+            padding: rem(7px) rem(13px);
+            font-size: rem(12px);
+            gap: rem(6px);
+        }
 
         .hotline-icon {
             color: #18181b;
+            flex-shrink: 0;
         }
 
         &:hover {
@@ -173,16 +198,24 @@
     .user-account-btn {
         display: inline-flex;
         align-items: center;
-        gap: rem(6px);
-        padding: rem(7px) rem(14px);
+        gap: rem(5px);
+        padding: rem(5px) rem(9px);
         border-radius: rem(999px);
         background: #f4f4f5;
         border: 1px solid #e4e4e7;
         color: #000000;
-        font-size: rem(12px);
+        font-size: rem(11px);
         font-weight: 700;
         text-decoration: none;
+        white-space: nowrap;
+        flex-shrink: 0;
         transition: all 0.2s ease;
+
+        @media (min-width: 1200px) {
+            padding: rem(7px) rem(13px);
+            font-size: rem(12px);
+            gap: rem(6px);
+        }
 
         &:hover {
             background: #000000;
@@ -196,19 +229,28 @@
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: rem(7px) !important;
-        padding: rem(9px) rem(20px) !important;
+        gap: rem(5px) !important;
+        padding: rem(6px) rem(12px) !important;
         background: #000000 !important;
         border: 1px solid #000000 !important;
         color: #ffffff !important;
         border-radius: rem(999px) !important;
-        font-size: rem(12.5px) !important;
+        font-size: rem(11.5px) !important;
         font-weight: 800 !important;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.4px;
         text-decoration: none;
+        white-space: nowrap;
+        flex-shrink: 0;
         box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
         transition: all 0.25s ease;
+
+        @media (min-width: 1200px) {
+            padding: rem(8px) rem(18px) !important;
+            font-size: rem(12.5px) !important;
+            gap: rem(7px) !important;
+            letter-spacing: 0.5px;
+        }
 
         svg {
             color: #ffffff !important;
@@ -288,46 +330,36 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                line-height: 1.15;
+                line-height: 1;
 
-                .brand-title {
-                    font-size: rem(14.5px);
-                    font-weight: 900;
-                    color: #0f172a;
-                    letter-spacing: -0.3px;
+                .brand-title-top {
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
+                    font-size: rem(16px);
+                    font-weight: 950;
+                    color: #000000;
+                    -webkit-text-stroke: 0.5px #000000;
+                    letter-spacing: 0.8px;
                     text-transform: uppercase;
-                    display: flex;
-                    align-items: center;
-                    gap: rem(4px);
-
-                    .brand-title-accent {
-                        background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        font-weight: 900;
-                    }
+                    display: block;
+                    line-height: 1.05;
+                    white-space: nowrap;
                 }
 
-                .brand-subtitle {
-                    display: flex;
-                    align-items: center;
-                    gap: rem(5px);
-                    font-size: rem(9px);
-                    font-weight: 800;
-                    color: #64748b;
-                    letter-spacing: 1.2px;
+                .brand-title-bottom {
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
+                    font-size: rem(11.5px);
+                    font-weight: 950;
+                    color: #059669;
+                    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    -webkit-text-stroke: 0.4px #059669;
+                    letter-spacing: 2.8px;
                     text-transform: uppercase;
+                    display: block;
+                    line-height: 1.1;
                     margin-top: rem(2px);
-
-                    .brand-live-dot {
-                        width: 5px;
-                        height: 5px;
-                        border-radius: 50%;
-                        background: #10b981;
-                        box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
-                        display: inline-block;
-                        flex-shrink: 0;
-                    }
+                    white-space: nowrap;
                 }
             }
         }

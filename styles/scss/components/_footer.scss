@@ -30,33 +30,72 @@
         align-items: center;
         gap: rem(14px);
         text-decoration: none;
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            line-height: 1;
+            user-select: none;
+
+            .brand-title-top {
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
+                font-size: rem(17px);
+                font-weight: 950;
+                color: #000000;
+                -webkit-text-stroke: 0.5px #000000;
+                letter-spacing: 0.8px;
+                text-transform: uppercase;
+                display: block;
+                line-height: 1.05;
+                white-space: nowrap;
+
+                @include mq(small) {
+                    font-size: rem(18.5px);
+                    letter-spacing: 1px;
+                }
+
+                @include mq(large) {
+                    font-size: rem(20px);
+                    letter-spacing: 1.2px;
+                    -webkit-text-stroke: 0.6px #000000;
+                }
+            }
+
+            .brand-title-bottom {
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
+                font-size: rem(12px);
+                font-weight: 950;
+                color: #059669;
+                background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                -webkit-text-stroke: 0.4px #059669;
+                letter-spacing: 2.8px;
+                text-transform: uppercase;
+                display: block;
+                line-height: 1.1;
+                margin-top: rem(2px);
+                white-space: nowrap;
+
+                @include mq(small) {
+                    font-size: rem(13px);
+                    letter-spacing: 3.2px;
+                }
+
+                @include mq(large) {
+                    font-size: rem(14px);
+                    letter-spacing: 3.6px;
+                    -webkit-text-stroke: 0.5px #059669;
+                }
+            }
+        }
     }
 
     &__logo {
-        width: 58px;
-        height: auto;
-    }
-
-    &__brand-text {
-        display: flex;
-        flex-direction: column;
-        line-height: 1.1;
-
-        .brand-title {
-            font-size: rem(20px);
-            font-weight: 900;
-            color: #000000;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .brand-sub {
-            font-size: rem(12px);
-            font-weight: 700;
-            color: #71717a;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+        width: 52px;
+        height: 52px;
+        object-fit: contain;
     }
 
     &__description {

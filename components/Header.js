@@ -47,13 +47,8 @@ const Header = () => {
                 />
               </div>
               <div className="brand-text">
-                <span className="brand-title">
-                  THE TURF <span className="brand-title-accent">NOAKHALI</span>
-                </span>
-                <span className="brand-subtitle">
-                  <span className="brand-live-dot"></span>
-                  PREMIER FOOTBALL ARENA
-                </span>
+                <span className="brand-title-top">THE TURF</span>
+                <span className="brand-title-bottom">NOAKHALI</span>
               </div>
             </Link>
           </div>
@@ -112,13 +107,8 @@ const Header = () => {
                       className="brand-logo-img"
                     />
                     <div className="brand-text">
-                      <span className="brand-title">
-                        THE TURF <span className="brand-title-accent">NOAKHALI</span>
-                      </span>
-                      <span className="brand-subtitle">
-                        <span className="brand-live-dot"></span>
-                        PREMIER ARENA
-                      </span>
+                      <span className="brand-title-top">THE TURF</span>
+                      <span className="brand-title-bottom">NOAKHALI</span>
                     </div>
                   </Link>
 
