@@ -40,6 +40,9 @@
     padding-left: rem(40px);
     padding-right: rem(40px);
   }
+  @include mq('1024px') {
+    width: 100%;
+  }
 }
 
 /**
