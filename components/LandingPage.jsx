@@ -249,11 +249,11 @@ const LandingPage = () => {
   const faqs = [
     {
       q: "How do I secure my reservation?",
-      a: "Select your preferred slot from our Live Schedule, provide your team details, and pay a 1 BDT advance via bKash/Nagad. You will receive an instant confirmation.",
+      a: "Select your preferred slot from our Live Schedule, provide your team details, and pay a 500 BDT advance via bKash/Nagad. You will receive an instant confirmation.",
     },
     {
       q: "Can I cancel or reschedule my match?",
-      a: "Yes! Contact the turf hotline at 01355289797 or WhatsApp us. Cancellations made 24 hours before kick-off are eligible for easy rescheduling.",
+      a: "Yes! Contact the turf hotline at 01780955832 or WhatsApp us. Cancellations made 24 hours before kick-off are eligible for easy rescheduling.",
     },
     {
       q: "How early should my team arrive?",
@@ -346,12 +346,12 @@ const LandingPage = () => {
 
             <div className="strip-divider"></div>
 
-            <a href="tel:01355289797" className="strip-item strip-link">
+            <a href="tel:01780955832" className="strip-item strip-link">
               <div className="strip-icon-box">
                 <Phone size={20} />
               </div>
               <div className="strip-text">
-                <span className="strip-title">01355 289 797</span>
+                <span className="strip-title">01780 955 832</span>
                 <span className="strip-sub">Call for Booking</span>
               </div>
             </a>
@@ -433,7 +433,7 @@ const LandingPage = () => {
               Real-time booking matrix. Select any available slot to initiate instant reservation.
             </p>
             <div className="notice-chip">
-              <span>⚡ Instant confirmation • 100% Refund guarantee on 24h prior cancellations • BDT 1 Advance</span>
+              <span>⚡ Instant confirmation • 100% Refund guarantee on 24h prior cancellations • BDT 500 Advance</span>
             </div>
           </div>
 
@@ -453,7 +453,7 @@ const LandingPage = () => {
             <div className="section-badge-green">OFFICIAL 5-SHIFT PRICING MATRIX</div>
             <h2 className="section-title-dark">Simple, Transparent Shift Pricing</h2>
             <p className="section-desc-gray">
-              Standard full pitch match slots with special discounted rates for online reservations. Book any shift with minimum ৳1 advance.
+              Standard full pitch match slots with special discounted rates for online reservations. Book any shift with minimum ৳500 advance.
             </p>
           </div>
 
@@ -526,7 +526,7 @@ const LandingPage = () => {
           <div className="pricing-guarantee-strip">
             <div className="guarantee-item">
               <ShieldCheck size={18} className="guarantee-icon" />
-              <span><strong>Instant Slot Lock:</strong> ৳1 minimum bKash advance secures your match reservation.</span>
+              <span><strong>Instant Slot Lock:</strong> ৳500 minimum bKash advance secures your match reservation.</span>
             </div>
             <div className="guarantee-item">
               <CheckCircle2 size={18} className="guarantee-icon" />
@@ -727,13 +727,13 @@ const LandingPage = () => {
           <div className="contact-layout-grid">
             {/* Left Column: Direct Contact Info Cards */}
             <div className="contact-cards-col">
-              <a href="tel:01355289797" className="contact-info-card">
+              <a href="tel:01780955832" className="contact-info-card">
                 <div className="contact-card-icon">
                   <Phone size={22} />
                 </div>
                 <div className="contact-card-content">
                   <span className="contact-card-label">Direct Hotline</span>
-                  <span className="contact-card-val">01355289797</span>
+                  <span className="contact-card-val">01780955832</span>
                   <span className="contact-card-sub">Tap to call instantly for slot availability</span>
                 </div>
               </a>
@@ -825,9 +825,9 @@ const LandingPage = () => {
                 <ChevronRight size={16} />
               </Link>
 
-              <a href="tel:01355289797" className="outline-white-button">
+              <a href="tel:01780955832" className="outline-white-button">
                 <Phone size={16} />
-                <span>Call: 01355 289 797</span>
+                <span>Call: 01780 955 832</span>
               </a>
 
               <a
