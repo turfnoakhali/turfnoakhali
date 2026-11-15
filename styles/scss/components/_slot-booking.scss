@@ -711,6 +711,16 @@
       background: rgba(255, 255, 255, 0.2);
       color: #ffffff;
     }
+
+    .slot-card-date-badge {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+
+      .date-badge-icon {
+        color: #6ee7b7;
+      }
+    }
   }
 
   &.state-booked {
@@ -747,6 +757,17 @@
     .final-price-text {
       color: #15803d;
     }
+
+    .slot-card-date-badge {
+      background: #e8f5e9;
+      border-color: #c8e6c9;
+      color: #166534;
+      opacity: 0.85;
+
+      .date-badge-icon {
+        color: #166534;
+      }
+    }
   }
 
   &.state-passed,
@@ -777,6 +798,16 @@
     .final-price-text {
       color: #94a3b8;
     }
+
+    .slot-card-date-badge {
+      background: #f1f5f9;
+      border-color: #e2e8f0;
+      color: #94a3b8;
+
+      .date-badge-icon {
+        color: #94a3b8;
+      }
+    }
   }
 
   &.state-holding {
@@ -793,6 +824,16 @@
       cursor: not-allowed !important;
       transform: none !important;
       box-shadow: none !important;
+    }
+
+    .slot-card-date-badge {
+      background: #fef3c7;
+      border-color: #fde68a;
+      color: #b45309;
+
+      .date-badge-icon {
+        color: #b45309;
+      }
     }
   }
 
@@ -899,8 +940,45 @@
   }
 }
 
-.slot-card-time {
+.slot-card-middle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: rem(8px);
   margin: rem(3px) 0;
+  width: 100%;
+}
+
+.slot-card-date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(4px);
+  padding: rem(3px) rem(7px);
+  border-radius: rem(7px);
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  font-size: rem(10px);
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+
+  .date-badge-icon {
+    color: #059669;
+    flex-shrink: 0;
+  }
+
+  @include mq(small) {
+    font-size: rem(10.5px);
+    padding: rem(3.5px) rem(8px);
+  }
+}
+
+.slot-card-time {
+  margin: 0;
 
   .time-range-display {
     font-family: monospace;
@@ -1271,6 +1349,18 @@
   padding: rem(18px) rem(16px);
   border: 1px solid #e2e8f0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #10b981 0%, #06b6d4 50%, #f59e0b 100%);
+  }
 
   @include mq(small) {
     border-radius: rem(24px);
@@ -1279,6 +1369,9 @@
 }
 
 .facilities-sidebar-title {
+  display: flex;
+  align-items: center;
+  gap: rem(8px);
   font-size: rem(14.5px);
   font-weight: 900;
   color: #0f172a;
@@ -1286,6 +1379,17 @@
   padding-bottom: rem(12px);
   margin: 0 0 rem(14px);
   letter-spacing: -0.3px;
+
+  &::before {
+    content: '';
+    width: rem(8px);
+    height: rem(8px);
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.7);
+    display: inline-block;
+    flex-shrink: 0;
+  }
 
   @include mq(small) {
     font-size: rem(15px);
@@ -1295,42 +1399,120 @@
 .facilities-sidebar-list {
   display: flex;
   flex-direction: column;
-  gap: rem(12px);
+  gap: rem(8px);
 
   @include mq(small) {
-    gap: rem(13px);
+    gap: rem(10px);
   }
 }
 
 .facility-sidebar-item {
   display: flex;
   align-items: center;
-  gap: rem(10px);
+  gap: rem(12px);
+  padding: rem(6px) rem(8px);
+  border-radius: rem(12px);
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: #f8fafc;
+    transform: translateX(3px);
+
+    .facility-icon-wrap {
+      transform: scale(1.08);
+    }
+  }
 
   .facility-icon-wrap {
-    width: rem(32px);
-    height: rem(32px);
+    width: rem(34px);
+    height: rem(34px);
     border-radius: rem(10px);
-    background: #f4f4f5;
-    border: 1px solid #e4e4e7;
-    color: #000000;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    transition: all 0.25s ease;
 
     @include mq(small) {
-      width: rem(34px);
-      height: rem(34px);
+      width: rem(36px);
+      height: rem(36px);
+      border-radius: rem(11px);
+    }
+  }
+
+  /* Specific Colorful Variants */
+  &.facility-item--turf {
+    .facility-icon-wrap {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.32);
+    }
+    &:hover {
+      background: rgba(16, 185, 129, 0.06);
+    }
+  }
+
+  &.facility-item--lighting {
+    .facility-icon-wrap {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.32);
+    }
+    &:hover {
+      background: rgba(245, 158, 11, 0.06);
+    }
+  }
+
+  &.facility-item--security {
+    .facility-icon-wrap {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.32);
+    }
+    &:hover {
+      background: rgba(59, 130, 246, 0.06);
+    }
+  }
+
+  &.facility-item--changing {
+    .facility-icon-wrap {
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.32);
+    }
+    &:hover {
+      background: rgba(139, 92, 246, 0.06);
+    }
+  }
+
+  &.facility-item--parking {
+    .facility-icon-wrap {
+      background: linear-gradient(135deg, #06b6d4, #0891b2);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(6, 182, 212, 0.32);
+    }
+    &:hover {
+      background: rgba(6, 182, 212, 0.06);
+    }
+  }
+
+  &.facility-item--refreshment {
+    .facility-icon-wrap {
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.32);
+    }
+    &:hover {
+      background: rgba(249, 115, 22, 0.06);
     }
   }
 
   .facility-item-title {
-    font-size: rem(12px);
-    font-weight: 900;
+    font-size: rem(12.5px);
+    font-weight: 800;
     color: #0f172a;
     margin: 0;
-    line-height: 1.2;
+    line-height: 1.25;
   }
 
   .facility-item-desc {
@@ -1369,15 +1551,11 @@
   padding: rem(16px) rem(18px);
   border-radius: rem(18px);
   background: #ffffff;
-  border: 1px solid #e2e8f0;
+  border: 1.5px solid #e2e8f0;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-  transition: all 0.25s ease;
-
-  &:hover {
-    border-color: #000000;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  }
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 
   @include mq(small) {
     padding: rem(18px) rem(20px);
@@ -1385,51 +1563,131 @@
   }
 
   .highlight-icon-box {
-    width: rem(40px);
-    height: rem(40px);
-    border-radius: rem(12px);
-    background: #f4f4f5;
-    border: 1px solid #e4e4e7;
-    color: #000000;
+    width: rem(44px);
+    height: rem(44px);
+    border-radius: rem(13px);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    transition: all 0.2s ease;
+    transition: all 0.28s ease;
 
     @include mq(small) {
-      width: rem(44px);
-      height: rem(44px);
+      width: rem(48px);
+      height: rem(48px);
       border-radius: rem(14px);
     }
   }
 
-  &:hover .highlight-icon-box {
-    background: #000000;
-    color: #ffffff;
-    border-color: #000000;
-  }
-
   h4 {
-    font-size: rem(12.5px);
+    font-size: rem(13px);
     font-weight: 900;
     color: #0f172a;
     margin: 0;
     letter-spacing: -0.2px;
 
     @include mq(small) {
-      font-size: rem(13px);
+      font-size: rem(13.5px);
     }
   }
 
   p {
-    font-size: rem(10.5px);
+    font-size: rem(11px);
     color: #64748b;
-    margin: rem(2px) 0 0;
+    margin: rem(3px) 0 0;
     font-weight: 500;
+    line-height: 1.35;
+  }
 
-    @include mq(small) {
-      font-size: rem(11px);
+  /* 1. 9-A-Side Pitch (Cyan / Ocean Blue) */
+  &.highlight-card--pitch {
+    background: linear-gradient(145deg, #ffffff 0%, #f0f9ff 100%);
+    border-color: #bae6fd;
+    box-shadow: 0 4px 16px rgba(14, 165, 233, 0.08);
+
+    .highlight-icon-box {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #ffffff;
+      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+    }
+
+    &:hover {
+      border-color: #0284c7;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(14, 165, 233, 0.2);
+
+      .highlight-icon-box {
+        transform: scale(1.08) rotate(-4deg);
+      }
+    }
+  }
+
+  /* 2. Instant Confirmation (Amber / Electric Yellow) */
+  &.highlight-card--instant {
+    background: linear-gradient(145deg, #ffffff 0%, #fffbeb 100%);
+    border-color: #fde68a;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.08);
+
+    .highlight-icon-box {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #ffffff;
+      box-shadow: 0 6px 16px rgba(245, 158, 11, 0.35);
+    }
+
+    &:hover {
+      border-color: #f59e0b;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.2);
+
+      .highlight-icon-box {
+        transform: scale(1.08) rotate(4deg);
+      }
+    }
+  }
+
+  /* 3. Daylight Floodlights (Emerald Green / Turf Neon) */
+  &.highlight-card--floodlights {
+    background: linear-gradient(145deg, #ffffff 0%, #f0fdf4 100%);
+    border-color: #bbf7d0;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.08);
+
+    .highlight-icon-box {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+    }
+
+    &:hover {
+      border-color: #10b981;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
+
+      .highlight-icon-box {
+        transform: scale(1.08) rotate(-4deg);
+      }
+    }
+  }
+
+  /* 4. ৳500 Advance Lock (bKash Rose/Pink Signature) */
+  &.highlight-card--advance {
+    background: linear-gradient(145deg, #ffffff 0%, #fdf2f8 100%);
+    border-color: #fbcfe8;
+    box-shadow: 0 4px 16px rgba(225, 29, 72, 0.08);
+
+    .highlight-icon-box {
+      background: linear-gradient(135deg, #e2136e 0%, #be185d 100%);
+      color: #ffffff;
+      box-shadow: 0 6px 16px rgba(226, 19, 110, 0.35);
+    }
+
+    &:hover {
+      border-color: #e2136e;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(226, 19, 110, 0.2);
+
+      .highlight-icon-box {
+        transform: scale(1.08) rotate(4deg);
+      }
     }
   }
 }

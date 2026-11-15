@@ -33,7 +33,7 @@ const Header = () => {
     <header className={`header-amishapara ${isScrolled ? "scrolled" : ""}`}>
       <div className="container">
         <div className="header-amishapara__content">
-          {/* Logo */}
+          {/* Logo & Brand Name */}
           <div className="header-amishapara__brand">
             <Link href="/" className="brand-link" aria-label="The Turf Noakhali">
               <div className="brand-logo-wrap">
@@ -45,6 +45,15 @@ const Header = () => {
                   priority
                   className="brand-logo-img"
                 />
+              </div>
+              <div className="brand-text">
+                <span className="brand-title">
+                  THE TURF <span className="brand-title-accent">NOAKHALI</span>
+                </span>
+                <span className="brand-subtitle">
+                  <span className="brand-live-dot"></span>
+                  PREMIER FOOTBALL ARENA
+                </span>
               </div>
             </Link>
           </div>
@@ -102,6 +111,15 @@ const Header = () => {
                       height={44}
                       className="brand-logo-img"
                     />
+                    <div className="brand-text">
+                      <span className="brand-title">
+                        THE TURF <span className="brand-title-accent">NOAKHALI</span>
+                      </span>
+                      <span className="brand-subtitle">
+                        <span className="brand-live-dot"></span>
+                        PREMIER ARENA
+                      </span>
+                    </div>
                   </Link>
 
                   <button

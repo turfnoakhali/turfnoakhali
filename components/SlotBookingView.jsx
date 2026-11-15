@@ -53,6 +53,20 @@ export default function SlotBookingView() {
 
   const todayStr = getTodayStr();
 
+  // Helper for displaying slot card date (e.g. "15 Nov 2026")
+  const formatSlotDateBadge = (dateStr) => {
+    if (!dateStr) return "";
+    const cleanStr = String(dateStr).split("T")[0];
+    const parts = cleanStr.split("-").map(Number);
+    if (parts.length < 3) return dateStr;
+    const [year, month, day] = parts;
+    const d = new Date(year, month - 1, day);
+    if (isNaN(d.getTime())) return dateStr;
+    const dayStr = String(day).padStart(2, "0");
+    const monthStr = d.toLocaleDateString("en-US", { month: "short" });
+    return `${dayStr} ${monthStr} ${year}`;
+  };
+
   // Date selection state
   const [selectedDate, setSelectedDate] = useState(todayStr);
   const [weekOffset, setWeekOffset] = useState(0); // 0 = current week starting today
@@ -899,15 +913,23 @@ export default function SlotBookingView() {
                         ) : null}
                       </div>
 
-                      {/* Middle: Slot Time with Stylish Arrow */}
-                      <div className="slot-card-time">
-                        <div className="time-range-display">
-                          <span>{timeDisplay.start}</span>
-                          <span className="time-arrow">→</span>
-                          <span>{timeDisplay.end}</span>
+                      {/* Middle: Slot Time & Date Badge */}
+                      <div className="slot-card-middle">
+                        <div className="slot-card-time">
+                          <div className="time-range-display">
+                            <span>{timeDisplay.start}</span>
+                            <span className="time-arrow">→</span>
+                            <span>{timeDisplay.end}</span>
+                          </div>
+                          <div className="time-period-label">
+                            {periodInfo.label} শিফট • ম্যাচ
+                          </div>
                         </div>
-                        <div className="time-period-label">
-                          {periodInfo.label} শিফট • ম্যাচ
+
+                        {/* Date Badge */}
+                        <div className="slot-card-date-badge">
+                          <Calendar size={11} className="date-badge-icon" />
+                          <span>{formatSlotDateBadge(selectedDate)}</span>
                         </div>
                       </div>
 
@@ -1086,7 +1108,7 @@ export default function SlotBookingView() {
           <div className="facilities-sidebar-card">
             <h3 className="facilities-sidebar-title">Our Facilities • সুবিধাসমূহ</h3>
             <div className="facilities-sidebar-list">
-              <div className="facility-sidebar-item">
+              <div className="facility-sidebar-item facility-item--turf">
                 <div className="facility-icon-wrap">
                   <Trophy size={16} />
                 </div>
@@ -1096,7 +1118,7 @@ export default function SlotBookingView() {
                 </div>
               </div>
 
-              <div className="facility-sidebar-item">
+              <div className="facility-sidebar-item facility-item--lighting">
                 <div className="facility-icon-wrap">
                   <Zap size={16} />
                 </div>
@@ -1106,7 +1128,7 @@ export default function SlotBookingView() {
                 </div>
               </div>
 
-              <div className="facility-sidebar-item">
+              <div className="facility-sidebar-item facility-item--security">
                 <div className="facility-icon-wrap">
                   <ShieldCheck size={16} />
                 </div>
@@ -1116,7 +1138,7 @@ export default function SlotBookingView() {
                 </div>
               </div>
 
-              <div className="facility-sidebar-item">
+              <div className="facility-sidebar-item facility-item--changing">
                 <div className="facility-icon-wrap">
                   <Layers size={16} />
                 </div>
@@ -1126,7 +1148,7 @@ export default function SlotBookingView() {
                 </div>
               </div>
 
-              <div className="facility-sidebar-item">
+              <div className="facility-sidebar-item facility-item--parking">
                 <div className="facility-icon-wrap">
                   <Users size={16} />
                 </div>
@@ -1136,7 +1158,7 @@ export default function SlotBookingView() {
                 </div>
               </div>
 
-              <div className="facility-sidebar-item">
+              <div className="facility-sidebar-item facility-item--refreshment">
                 <div className="facility-icon-wrap">
                   <Coffee size={16} />
                 </div>
@@ -1152,7 +1174,7 @@ export default function SlotBookingView() {
 
       {/* BOTTOM HIGHLIGHTS BANNER (4 Cards) */}
       <div className="booking-highlights-row">
-        <div className="highlight-feature-card">
+        <div className="highlight-feature-card highlight-card--pitch">
           <div className="highlight-icon-box">
             <Users size={22} />
           </div>
@@ -1162,7 +1184,7 @@ export default function SlotBookingView() {
           </div>
         </div>
 
-        <div className="highlight-feature-card">
+        <div className="highlight-feature-card highlight-card--instant">
           <div className="highlight-icon-box">
             <Zap size={22} />
           </div>
@@ -1172,7 +1194,7 @@ export default function SlotBookingView() {
           </div>
         </div>
 
-        <div className="highlight-feature-card">
+        <div className="highlight-feature-card highlight-card--floodlights">
           <div className="highlight-icon-box">
             <Sun size={22} />
           </div>
@@ -1182,7 +1204,7 @@ export default function SlotBookingView() {
           </div>
         </div>
 
-        <div className="highlight-feature-card">
+        <div className="highlight-feature-card highlight-card--advance">
           <div className="highlight-icon-box">
             <ShieldCheck size={22} />
           </div>
