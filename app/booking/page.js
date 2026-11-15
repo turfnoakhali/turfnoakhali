@@ -102,9 +102,9 @@ export default function BookingPage() {
               </p>
             </div>
             <div className="help-actions">
-              <a href="tel:01355289797" className="secondary-button">
+              <a href="tel:01780955832" className="secondary-button">
                 <Phone size={15} />
-                <span>Call: 01355289797</span>
+                <span>Call: 01780955832</span>
               </a>
               <a
                 href="https://wa.me/8801355289797"

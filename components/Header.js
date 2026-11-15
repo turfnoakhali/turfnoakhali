@@ -54,9 +54,9 @@ const Header = () => {
             <HeaderNav menuDataAtt={menuData} />
 
             {/* Hotline Link */}
-            <a href="tel:01355289797" className="hotline-pill">
+            <a href="tel:01780955832" className="hotline-pill">
               <Phone size={14} className="hotline-icon" />
-              <span>01355289797</span>
+              <span>01780955832</span>
             </a>
 
             {/* Account / Sign In */}
@@ -128,9 +128,9 @@ const Header = () => {
                 </div>
 
                 <div className="drawer-actions">
-                  <a href="tel:01355289797" className="drawer-hotline-btn">
+                  <a href="tel:01780955832" className="drawer-hotline-btn">
                     <Phone size={16} />
-                    <span>Call Hotline: 01355289797</span>
+                    <span>Call Hotline: 01780955832</span>
                   </a>
 
                   {session?.user ? (

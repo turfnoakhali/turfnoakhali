@@ -76,7 +76,7 @@ const Footer = () => {
 
                             <div className="contact-item">
                                 <Phone size={18} className="contact-icon" />
-                                <a href="tel:01355289797">Hotline: 01355289797</a>
+                                <a href="tel:01780955832">Hotline: 01780955832</a>
                             </div>
 
                             <div className="contact-item">
